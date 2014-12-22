@@ -8,5 +8,9 @@ DEV=/dev/video4
 WIDTH=640
 HEIGHT=480
 
-gst-launch pulsesrc ! libvisual_gl_projectM ! gldownload ! video/x-raw-yuv,width=$WIDTH,height=$HEIGHT ! v4l2sink device=$DEV
+#set audio source
+#ASRC=jackaudiosrc
+ASRC=pulsesrc
+
+gst-launch $ASRC ! libvisual_gl_projectM ! gldownload ! video/x-raw-yuv,width=$WIDTH,height=$HEIGHT ! v4l2sink device=$DEV
 
