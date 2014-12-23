@@ -12,7 +12,7 @@ VPORT=5000
 #set latency
 LATENCY=1
 #set output video device
-VIDEODEV=/dev/video8
+VIDEODEV=/dev/video6
 
 gst-launch udpsrc multicast-group=$IP auto-multicast=true port=$VPORT ! jpegdec ! ffmpegcolorspace ! queue ! v4l2sink device=$VIDEODEV sync=false
 

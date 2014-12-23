@@ -10,7 +10,7 @@ VPORT=5000
 #set latency
 LATENCY=1
 #set output video device
-VIDEODEV=/dev/video8
+VIDEODEV=/dev/video5
 
-gst-launch udpsrc multicast-group=$IP auto-multicast=true port=$VPORT caps="video/x-asus, width=(int)640, height=(int)480, framerate=(fraction)25/1, asusversion=(int)2, codec_data=(buffer)1000000041535553" ! ffdec_asv2 ! v4l2sink device=$VIDEODEV sync=false
+gst-launch udpsrc multicast-group=$IP auto-multicast=true port=$VPORT caps="video/x-asus, width=(int)640, height=(int)480, framerate=(fraction)25/1, asusversion=(int)2, codec_data=(buffer)1000000041535553" ! ffdec_asv2 ! ffmpegcolorspace ! v4l2sink device=$VIDEODEV sync=false
 
