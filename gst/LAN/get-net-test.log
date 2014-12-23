@@ -1,0 +1,41 @@
+Gst-launch network stream log
+
+x264
+cpu:
+
+server: 6%
+client: %14
+
+avs2
+cpu:
+server: 4.5%
+client: 5%
+
+jpg
+might be a bit choppy decent quality though
+cpu
+server: 3%
+client: 4%
+
+updated x264 now 8% on client side and 8% on server
+
+electric sheep trials
+
+x264
+seems smooth pretty smooth good motion
+cpu
+server: 10%
+client: 9%
+
+asv2
+seems pretty smooth, good movment 
+cpu
+server: 7%
+client: 7%
+
+jpeg
+maybe sligth motion stutters
+cpu
+server: 7%
+client: 7%
+
