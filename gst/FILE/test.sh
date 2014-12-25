@@ -6,10 +6,16 @@ PATH=/home/hero/Videos/Music*Videos
 FILES=/home/hero/Videos/Music*Videos/*
 for f in $FILES
 do
-
+Z=\"file:/$f\"
+echo " zed yo $Z"
 #set output path and file
-VPATH=~/Videos/veejay
-OFILE='$f-veejay.avi'
+VPATH=~/Videos/veejay/MusVid
+SFILE=$(/usr/bin/basename "$f")
+echo "sfile yo: $SFILE"
+NOEXT=${SFILE%.*}
+echo "NoeXt YO!!: $NOEXT"
+#CFILE=${$SFILE %.*}
+OFILE=\"$VPATH/$NOEXT-veejay.avi\"
 #OFILE=veejay.avi
 
 #TIME=$(date "+%Y.%m.%d-%H.%M.%S")   
@@ -23,10 +29,8 @@ HEIGHT=480
 FPS=30/1
 #set uri (provide file name and path at command line usage: gst-file-264-file.sh file.avi)
 URI=$f
-  echo "converting $f  to $f-veejay.avi" &
+  echo "converting $Z  to $OFILE" 
   # take action on each file. $f store current file name
-
-/usr/bin/gst-launch avimux name=mux ! filesink  location=\"$OFILE\" uridecodebin uri="file:$URI" name=demux demux. ! videoscale ! videorate ! ffmpegcolorspace ! video/x-raw-yuv,width=$WIDTH,height=$HEIGHT,framerate=$FPS ! $ENC ! queue ! mux.video_0 demux. ! progressreport ! audioconvert ! audiorate ! audioresample ! 'audio/x-raw-int,rate=48000,cahannels=2'  ! queue ! mux.audio_0
 
 done
 

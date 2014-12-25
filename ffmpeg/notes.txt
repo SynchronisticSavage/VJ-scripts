@@ -1,0 +1,12 @@
+# convert video to "veejay playable" 640x480 .avi file, MAKES SEEKABLE videos!
+ffmpeg -i lightPaintHiR2014_12_22_160207.mpg -r 30 -sameq -s vga -pass 1 -vcodec mjpeg test2.avi
+
+# turn all .jpg files in a directory into a movie, "-r" is rate, 1 = one frame per second, 30 = 30fps
+cat *.jpg | ffmpeg -f image2pipe -r 1 -vcodec mjpeg -i - -vcodec libx264 out.mp4
+
+# turn all .jpg files into "veejay readable" format.  x264 might also be a good choice, smaller, good quality.
+cat *.jpg | ffmpeg -f image2pipe -r 120 -vcodec mjpeg -i - -vcodec mjpeg -s vga out2_120fpsMJPEGvga.avi
+
+# join all .mpg files into one (outVIAcat.mpg)
+cat *.mpg > outVIAcat.mpg
+
