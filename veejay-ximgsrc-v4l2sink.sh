@@ -12,7 +12,7 @@ POINTER=false
 #set output resolution and framerate (scale)
 WIDTH=640
 HEIGHT=480
-FPS=30
+FPS=30/1
 
 #set audio rate
 ARATE=48000
@@ -26,7 +26,7 @@ sudo modprobe v4l2loopback devices=8
 mkfifo /tmp/pipe
 
 #pipe desktop to v4l2loopback device
-gst-launch -v ximagesrc use-damage=0 show-pointer=$POINTER startx=$STARTX starty=$STARTY endx=$ENDX endy=$ENDY ! ffmpegcolorspace ! videoscale ! video/x-raw-yuv,width=$WIDTH,height=$HEIGHT,framerate=$FPS ! v4l2sink device=/dev/video4 &
+gst-launch -v ximagesrc use-damage=0 show-pointer=false startx=$STARTX starty=$STARTY endx=$ENDX endy=$ENDY ! ffmpegcolorspace ! videoscale ! video/x-raw-yuv,width=$WIDTH,height=$HEIGHT,framerate=$FPS ! v4l2sink device=/dev/video4 &
 
 #pipe /tmp/pipe to output Veejay to /dev/video3
 yuv4mpeg_to_v4l2 $ODEV < /tmp/pipe &

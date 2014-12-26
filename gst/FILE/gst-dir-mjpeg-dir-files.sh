@@ -2,9 +2,9 @@
 
 #Script to convert video files to mjpeg scaled framerate adjusted good for use in veejay
 #set input path
-FILES=/home/hero/Videos/clips/converted/*
+FILES=/home/hero/Videos/vizfood/memo/*
 #set output Dir make if it does not exsist
-VPATH=~/Videos/veejay/clips
+VPATH=~/Videos/veejay/memo
 mkdir -p $VPATH &
 
 for f in $FILES
