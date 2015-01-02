@@ -16,7 +16,11 @@ HEIGHT=480
 FPS=30/1
 
 #set output video device
-DEV=/dev/video5
+DEV=/dev/video4
 
-gst-launch-0.10 uridecodebin name=dec uri=$(/usr/bin/youtube-dl -g -f 18 $VID)  ! queue ! autoaudiosink dec. ! queue  ! videoscale ! videorate ! video/x-raw-yuv,width=$WIDTH,height=$HEIGHT,framerate=$FPS ! v4l2sink device=$DEV
+#modded to make work with some versions of veejay
+#gst-launch-0.10 uridecodebin name=dec uri=$(/usr/bin/youtube-dl -g -f 18 $VID)  ! queue ! autoaudiosink dec. ! queue ! videoscale ! videorate ! video/x-raw-yuv,width=$WIDTH,height=$HEIGHT,framerate=$FPS !  v4l2sink device=$DEV
+
+
+gst-launch-0.10 uridecodebin name=dec uri=$(/usr/bin/youtube-dl -g -f 18 $VID)  ! queue ! autoaudiosink dec. ! queue ! videoscale ! videorate ! ffmpegcolorspace ! video/x-raw-yuv,width=$WIDTH,height=$HEIGHT,framerate=$FPS,format=\(fourcc\)YUY2 !  v4l2sink device=$DEV
 

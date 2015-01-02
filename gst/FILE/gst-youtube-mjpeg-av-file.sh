@@ -28,7 +28,7 @@ URI=$(/usr/bin/youtube-dl -g -f 18 $VID)
 WIDTH=640
 HEIGHT=480
 
-echo "Downloading $VNAME from youtube and saving to $VPATH/$OFILE" &&
+echo "Downloading $VNAME from youtube and saving to $VPATH/$OFILE"
 
 gst-launch-0.10 avimux name=mux ! filesink location=\"$VPATH/$OFILE\" uridecodebin uri=$URI name=demux demux. ! videoscale ! ffmpegcolorspace ! videorate ! video/x-raw-yuv,width=$WIDTH,height=$HEIGHT,framerate=30/1 ! jpegenc ! queue ! mux.video_0 demux. ! progressreport ! audioconvert ! audiorate ! audioresample ! 'audio/x-raw-int,rate=48000,channels=2' ! queue ! mux.audio_0
 

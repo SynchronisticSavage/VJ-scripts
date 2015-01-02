@@ -8,7 +8,7 @@ FPS=30
 
 #set audio rate
 ARATE=48000
-
+#ARATE=44100
 #set veejay output v4l2loopback device
 ODEV=/dev/video7
 

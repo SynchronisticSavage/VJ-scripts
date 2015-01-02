@@ -23,7 +23,7 @@ OFILE=\"$VPATH/$NOEXT-veejay.avi\"
 #TIME=$(date "+%Y.%m.%d-%H.%M.%S")   
 
 #set the encoder
-ENC=jpegenc
+ENC=x264
 
 #set Output Width/Height and framerate
 WIDTH=640
@@ -31,7 +31,7 @@ HEIGHT=480
 FPS=30/1
   echo "converting $Z  to $OFILE" 
 # run the script
-/usr/bin/gst-launch avimux name=mux ! filesink  location=$OFILE uridecodebin uri="file:$Z" name=demux demux. ! videoscale ! videorate ! ffmpegcolorspace ! video/x-raw-yuv,width=$WIDTH,height=$HEIGHT,framerate=$FPS ! $ENC ! queue ! mux.video_0 demux. ! progressreport ! audioconvert ! audiorate ! audioresample ! 'audio/x-raw-int,rate=48000,cahannels=2'  ! queue ! mux.audio_0
+/usr/bin/gst-launch avimux name=mux ! filesink  location=$OFILE uridecodebin uri="file:$Z" name=demux demux. ! videoscale ! videorate ! ffmpegcolorspace ! video/x-raw-yuv,width=$WIDTH,height=$HEIGHT,framerate=$FPS ! $ENC ! queue ! mux.video_0 demux. ! progressreport ! audioconvert ! lame ! queue ! mux.audio_0
 
 done
 
