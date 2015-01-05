@@ -3,7 +3,8 @@
 #hint...think virtual feedback
 
 #set capture area
-XID=0x400000e
+XID=0x3a00002
+SNUM=99
 #show cursor?
 POINTER=false
 
@@ -16,4 +17,4 @@ FPS=30/1
 #FMAT=I420
 
 
-gst-launch -v ximagesrc use-damage=0 show-pointer=$POINTER xid=$XID ! ffmpegcolorspace ! videoscale ! video/x-raw-yuv,width=$WIDTH,height=$HEIGHT,framerate=$FPS ! v4l2sink device=/dev/video4
+gst-launch -v ximagesrc screen-num=$SNUM use-damage=0 show-pointer=$POINTER xid=$XID ! ffmpegcolorspace ! videoscale ! video/x-raw-yuv,width=$WIDTH,height=$HEIGHT,framerate=$FPS ! v4l2sink device=/dev/video4

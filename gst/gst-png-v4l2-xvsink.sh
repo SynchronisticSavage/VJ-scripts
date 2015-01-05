@@ -1,0 +1,1 @@
+gst-launch-1.0 videomixer name=mix ! videoconvert ! xvimagesink   multifilesrc loop=1 location="/home/hero/Pictures/ani/spiral-hue/hue-shift-alpha-3_%06d.png" caps="image/png,framerate=30/1" ! pngdec ! alpha method=0 alpha=1 ! mix.  v4l2src device=/dev/video1 ! videoconvert ! videoscale ! videorate ! "video/x-raw,format=AYUV,framerate=30/1,width=640,height=480" ! mix.

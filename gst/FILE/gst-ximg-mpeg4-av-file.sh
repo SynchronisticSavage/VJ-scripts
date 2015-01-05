@@ -31,4 +31,7 @@ ASRC=jackaudiosrc
 #ASRC=autoaudiosrc
 #ASRC=pulsesrc
 
-gst-launch-0.10 -e ximagesrc use-damage=$DAM show-pointer=$POINTER startx=$STARTX starty=$STARTY endx=$ENDX endy=$ENDY ! queue ! video/x-raw-rgb,width=$OWIDTH,height=$OHEIGHT,framerate=30/1 ! videoscale ! ffmpegcolorspace ! video/x-raw-yuv,width=$WIDTH,height=$HEIGHT,framerate=30/1 ! queue ! $ENC ! avimux name=mux ! filesink location=$VPATH/$TIME.$OFILE $ASRC ! queue ! audioconvert ! audiorate ! 'audio/x-raw-int,rate=48000,channels=2' ! mux.
+gst-launch-0.10 avimux name=mux ! filesink location=test0.avi v4l2src device=/dev/video2 ! \
+video/x-raw-yuv,width=640,height=480,framerate=\(fraction\)30000/1001 ! ffmpegcolorspace ! \ 
+ffenc_mpeg4 ! queue ! mux. alsasrc device=hw:2,0 ! audio/x-raw-int,channels=2,rate=32000,depth=16 ! \ 
+audioconvert ! lame ! mux.

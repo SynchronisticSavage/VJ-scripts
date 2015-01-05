@@ -23,12 +23,12 @@ OHEIGHT=768
 POINTER=false
 DAM=0
 #set Output Width/Height (scale)
-WIDTH=1024
-HEIGHT=768
+WIDTH=640
+HEIGHT=480
 
 #set your Audio Source
 ASRC=jackaudiosrc
 #ASRC=autoaudiosrc
 #ASRC=pulsesrc
 
-gst-launch-0.10 -e ximagesrc use-damage=$DAM show-pointer=$POINTER startx=$STARTX starty=$STARTY endx=$ENDX endy=$ENDY ! queue ! video/x-raw-rgb,width=$OWIDTH,height=$OHEIGHT,framerate=30/1 ! videoscale ! ffmpegcolorspace ! video/x-raw-yuv,width=$WIDTH,height=$HEIGHT,framerate=30/1 ! queue ! $ENC ! avimux name=mux ! filesink location=$VPATH/$TIME.$OFILE $ASRC ! queue ! audioconvert ! audiorate ! 'audio/x-raw-int,rate=48000,channels=2' ! mux.
+gst-launch -e ximagesrc use-damage=$DAM show-pointer=$POINTER startx=$STARTX starty=$STARTY endx=$ENDX endy=$ENDY ! video/x-raw-rgb,width=$OWIDTH,height=$OHEIGHT,framerate=30/1 ! videoscale ! ffmpegcolorspace ! video/x-raw-yuv,width=$WIDTH,height=$HEIGHT,framerate=30/1 ! $ENC ! queue ! mux. $ASRC  connect=2 ! audioconvert ! 'audio/x-raw-int,rate=48000,channels=2' ! queue ! mux. avimux name=mux ! filesink location=$VPATH/$TIME.$OFILE

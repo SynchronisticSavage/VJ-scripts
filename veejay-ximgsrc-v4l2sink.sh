@@ -19,6 +19,8 @@ ARATE=48000
 
 #set veejay output v4l2loopback device
 ODEV=/dev/video7
+#set desktop capture dev
+DESKDEV=/dev/video4
 
 #load v4l2loopback kernel module (comment if you set it to load on startup)
 sudo modprobe v4l2loopback devices=8
@@ -26,7 +28,7 @@ sudo modprobe v4l2loopback devices=8
 mkfifo /tmp/pipe
 
 #pipe desktop to v4l2loopback device
-gst-launch -v ximagesrc use-damage=0 show-pointer=false startx=$STARTX starty=$STARTY endx=$ENDX endy=$ENDY ! ffmpegcolorspace ! videoscale ! video/x-raw-yuv,width=$WIDTH,height=$HEIGHT,framerate=$FPS ! v4l2sink device=/dev/video4 &
+gst-launch -v ximagesrc use-damage=0 show-pointer=false startx=$STARTX starty=$STARTY endx=$ENDX endy=$ENDY ! ffmpegcolorspace ! videoscale ! video/x-raw-yuv,width=$WIDTH,height=$HEIGHT,framerate=$FPS ! v4l2sink device=$DESKDEV &
 
 #pipe /tmp/pipe to output Veejay to /dev/video3
 yuv4mpeg_to_v4l2 $ODEV < /tmp/pipe &
