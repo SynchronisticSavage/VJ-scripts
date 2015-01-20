@@ -18,4 +18,4 @@ VDEV=/dev/video3
 #FMAT=I420
 
 
-gst-launch -v ximagesrc screen-num=$SNUM use-damage=0 show-pointer=$POINTER xid=$XID ! video/x-raw-rgb,width=$WIDTH,height=$HEIGHT,framerate=$FPS ! ffmpegcolorspace ! videoscale ! video/x-raw-yuv,width=$WIDTH,height=$HEIGHT,framerate=$FPS ! v4l2sink sync=false device=$VDEV
+gst-launch -v ximagesrc screen-num=$SNUM use-damage=0 show-pointer=$POINTER xid=$XID ! video/x-raw-rgb,width=$WIDTH,height=$HEIGHT,framerate=$FPS ! ffmpegcolorspace ! videoscale ! video/x-raw-yuv,width=$WIDTH,height=$HEIGHT,framerate=$FPS ! xvimagesink

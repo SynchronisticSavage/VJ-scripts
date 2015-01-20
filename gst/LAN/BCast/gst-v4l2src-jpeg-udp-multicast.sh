@@ -2,7 +2,7 @@
 #script to stream v4l2 device over udp multicast using jpeg encoding good for streaming low latency decent quality video over a wired LAN, think sending streams from one stage at a festival to another.
 
 #set v4l2 input device
-IDEV=/dev/video1
+IDEV=/dev/video5
 
 #set resolution
 WIDTH=640

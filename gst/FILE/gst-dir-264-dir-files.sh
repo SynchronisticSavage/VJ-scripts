@@ -2,9 +2,9 @@
 
 #Script to convert video files to mjpeg scaled framerate adjusted good for use in veejay
 #set input path
-FILES=/home/hero/Videos/gimp/*
+FILES=/home/hero/Videos/lphir/new/*
 #set output Dir and make if it does not exsist
-VPATH=~/Videos/web
+VPATH=~/Videos/web/lphir/new
 mkdir -p $VPATH &&
 
 for f in $FILES

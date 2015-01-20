@@ -8,7 +8,7 @@
 IP=10.42.0.255
 VPORT=5000
 #set v4l2 input device
-DEVICE=/dev/video7
+DEVICE=/dev/video5
 
 gst-launch -v v4l2src device=$DEVICE ! ffmpegcolorspace ! ffenc_asv2 ! udpsink host=$IP port=$VPORT auto-multicast=true sync=false
 
