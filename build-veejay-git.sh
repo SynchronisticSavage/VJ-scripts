@@ -13,6 +13,16 @@ git clone http://code.dyne.org/veejay
 #change to server source
 cd veejay/veejay-current/veejay-server
 #configure build and install veejay
+#you may need to disable sdl to get recent version to compile
+#./autogen.sh && ./configure --without-sdl && make && sudo make install
 ./autogen.sh && ./configure && make && sudo make install
-
+cd ../veejay-client
+./autogen.sh && ./configure && make && sudo make install
+cd ../veejay-utils
+./autogen.sh && ./configure && make && sudo make install
+cd ../veejay-themes
+./INSTALL.sh
+#install sendVIMS
+#cd ..
+#./configure && make && sudo make install
 
