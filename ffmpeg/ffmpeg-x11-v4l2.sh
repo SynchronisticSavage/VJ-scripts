@@ -9,4 +9,4 @@ FPS=30
 mkfifo /tmp/deskpipe
 yuv4mpeg_to_v4l2 $VDEV < /tmp/deskpipe &
 
-ffmpeg -f x11grab -follow_mouse centered -r $FPS -s $CAPZONE -i :0.0+0,0 -vcodec rawvideo -pix_fmt yuv420p -threads 0 -f yuv4mpegpipe /tmp/deskpipe
+ffmpeg -y -f x11grab -follow_mouse centered -r $FPS -s $CAPZONE -i :0.0+0,0 -vcodec rawvideo -pix_fmt yuv420p -threads 0 -f yuv4mpegpipe /tmp/deskpipe
