@@ -16,7 +16,8 @@ ENC=jpegenc
 VNAME=$(/usr/bin/youtube-dl --get-title $VID)
 #VNAME=$(/usr/bin/youtube-dl --get-filename $VID)
 
-VPATH=~/Videos/veejay/Trip
+VPATH=~/Videos/veejay/Clip
+mkdir -p $VPATH
 OFILE=$VNAME.youtube.avi
 
 #OFILE=youtube.avi

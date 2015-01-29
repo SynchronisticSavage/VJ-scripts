@@ -15,7 +15,7 @@ ODEV=/dev/video5
 #load v4l2loopback kernel module (comment out if you set it to autoload)
 sudo modprobe v4l2loopback devices=8
 #make first in first out tmp file
-mkfifo /tmp/pipe
+mkfifo /tmp/pipe	
 
 #!WORKAROUND! pipe /dev/video1 (PS3 Eye) to /dev/video2 so it will work with veejay, (seems to be fixed with recent versions)
 #gst-launch v4l2src device=/dev/video1 ! v4l2sink device=/dev/video2 &

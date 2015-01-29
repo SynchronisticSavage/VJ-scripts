@@ -2,9 +2,9 @@
 
 #Script to convert video files to mjpeg scaled framerate adjusted good for use in veejay
 #set input path
-FILES=/home/hero/Videos/Docs/Planet*Earth/*
+FILES=/home/hero/Videos/lphir/extpaint/*
 #set output Dir and make if it does not exsist
-VPATH=~/Videos/veejay/Docs/PlanEarth
+VPATH=~/Videos/veejay-1920
 mkdir -p $VPATH &&
 
 for f in $FILES
@@ -26,8 +26,8 @@ OFILE=\"$VPATH/$NOEXT-veejay.avi\"
 ENC=jpegenc
 
 #set Output Width/Height and framerate
-WIDTH=640
-HEIGHT=480
+WIDTH=1920
+HEIGHT=1080
 FPS=30/1
   echo "converting $Z  to $OFILE" 
 # run the script
