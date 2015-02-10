@@ -4,6 +4,7 @@ import pygst
 pygst.require("0.10")
 import gst
 import gtk
+import time
 #kaleidoscope 
 #gst-launch v4l2src device=/dev/video1 ! video/x-raw-yuv,width=640,height=480,framerate=30/1 ! ffmpegcolorspace ! kaleidoscope ! ffmpegcolorspace ! xvimagesink
 
@@ -48,6 +49,10 @@ class Pipeline(object):
 	self.ffmcs.link(self.kscope)
 	self.kscope.link(self.ffmc2)
 	self.ffmc2.link(self.sink)
+        self.pipeline.set_state(gst.STATE_PLAYING)
+	time.sleep(3000)
+	self.pipeline.set_state(gst.STATE_PAUSE)
+	time.sleep(3500)
         self.pipeline.set_state(gst.STATE_PLAYING)
   
 start = Pipeline()
