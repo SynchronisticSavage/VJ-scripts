@@ -16,9 +16,9 @@ ENC=jpegenc
 VNAME=$(/usr/bin/youtube-dl --get-title $VID)
 #VNAME=$(/usr/bin/youtube-dl --get-filename $VID)
 
-VPATH=~/Videos/veejay/Clip
+VPATH=~/Videos/veejay/greenscreen
 mkdir -p $VPATH
-OFILE=$VNAME.youtube.avi
+OFILE=$VNAME.greenscreen.youtube.avi
 
 #OFILE=youtube.avi
 TIME=$(date "+%Y.%m.%d-%H.%M.%S")

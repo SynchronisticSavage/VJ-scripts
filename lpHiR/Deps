@@ -1,0 +1,86 @@
+#!/bin/bash
+#dependencies for Light Paint HiR on Open Artist (may work for other ubuntu distros)
+
+#set pkg config path
+export PKG_CONFIG_PATH=/usr/lib/x86_64-linux-gnu/pkgconfig:/usr/local/lib/pkgconfig
+export SDL_TTF_LIBS=-lSDL_ttf
+
+#download a bunch of dependencies via apt-get (you may need to update to get everything ok)
+#sudo apt-get update
+#note you may be able to use jack1 but jack2 is recommended
+sudo apt-get install autoconf libtool libopencv-dev libgavl-dev libmjpegtools-dev libsdl2-ttf-dev libquicktime2=2:1.2.3-4build2 libmjpegtools-dev libsdl-ttf2.0-dev libunwind7-dev libdirectfb-dev libdv4-dev liblo-dev libglade2-dev libjack-jackd2-dev python-liblo
+
+#setup jack and pulse to autostart
+sudo chmod +x /etc/X11/Xsession.d/99cadence-session-start
+sudo chmod +x /etc/X11/Xsession.d/70cadence-plugin-paths
+
+#mk src dir for some deps
+mkdir -p ~/src/git
+cd ~/src/git
+
+#get latest frei0r from git compile and install to /usr 
+git clone http://code.dyne.org/frei0r
+cd frei0r
+./autogen.sh
+./configure --prefix=/usr
+make
+sudo make install
+
+#get the latest v4l2loopback, compile and install (with yuv4mpeg_to_v4l2)
+cd ~/src/git
+git clone http://github.com/umlaeute/v4l2loopback
+cd v4l2loopback
+make && sudo make install
+cd examples
+make
+sudo cp yuv4mpeg_to_v4l2 /usr/bin
+
+#get and install py-jack
+mkdir -p ~/src/python
+cd ~/src/python
+wget https://pypi.python.org/packages/source/p/py-jack/py-jack-0.5.2.tar.gz
+tar -xzvf py-jack-0.5.2.tar.gz
+rm py-jack-0.5.2.tar.gz
+cd py-jack-0.5.2
+sudo python setup.py install
+
+#copy freetype dev files to path that veejay will find (is there a better method?)
+sudo cp -r /usr/include/freetype2/freetype/* /usr/include/freetype2/
+
+#build and install the latest version of veejay from git
+
+#set output Dir and make if it does not exsist
+VPATH=~/src/git/vj
+mkdir -p $VPATH
+
+#change to vpath and clone vj from git
+cd $VPATH
+git clone http://code.dyne.org/veejay
+
+#change to server source
+cd veejay/veejay-current/veejay-server
+
+#configure build and install veejay
+
+#you may need to disable sdl to get recent version to compile
+#./autogen.sh && ./configure --without-sdl && make && sudo make install
+
+sudo make uninstall && make clean && ./autogen.sh && ./configure  --prefix=/usr && make && sudo make install
+cd livido-plugins
+sudo ./RUNME.sh /usr/lib/livido-plugins
+cd ../../veejay-client
+sudo make uninstall && make clean && ./autogen.sh && ./configure  --prefix=/usr && make && sudo make install
+cd ../veejay-utils
+sudo make uninstall && make clean && ./autogen.sh && ./configure  --prefix=/usr && make && sudo make install
+cd ../veejay-themes
+./INSTALL.sh
+#install sendVIMS
+cd ../sendVIMS
+sudo make uninstall && make clean && ./autogen.sh && ./configure  --prefix=/usr && make && sudo make install
+
+#LpHiR
+
+#copy scripts to /usr/bin and the Desktop to start lpHiR
+
+sudo cp ~/HiR/lpHiR3015-osc/scripts/lpHiR /usr/bin/lpHiR
+sudo cp ~/HiR/lpHiR3015-osc/scripts/*.desktop ~/Desktop/
