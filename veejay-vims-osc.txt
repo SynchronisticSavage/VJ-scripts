@@ -1,0 +1,2373 @@
+I: Looking for plugins in common locations ...
+E: Some strange frei0r plugin, would not be able to eat that.
+E: 	Frei0r Scale0Tilt-0.1 is blacklisted. Please upgrade this plug-in to a newer version.
+E: 	Frei0r scanline0r-0.1 is blacklisted. Please upgrade this plug-in to a newer version.
+I: Veejay plugin system initialized
+I: -------------------------------------------------------------------------------------------
+I: 	frei0r - a minimalistic plugin API for video effects
+I: 		(C) Copyright 2004 Georg Seidel, Phillip Promesberger and Martin Bayer (GPL)
+I: 	http://www.piksel.org/frei0r
+I: 	Found 126 frei0r plugins
+W: 	Performance penalty for frei0r and FreeFrame: native -> RGB -> native.
+I: 	Livido - (Linux) Video Dynamic Objects
+I: 	(C) Copyright 2005 Niels Elburg, Gabriel 'Salsaman' Finch, Dennis 'Jaromil' Rojo
+I: 	                   Daniel Fischer, Martin Bayer, Kentaro Fukuchi and Andraz Tori
+I: 	Found 9 Livido plugins
+I: Loaded 135 plugins
+I: VIMS  Syntax: '<selector>:<arguments>;'
+I: Use arguments according to FORMAT
+I: FORMAT controls the arguments as in C printf. Interpreted sequences are:
+I: 	%d	integer
+I: 	%s	string
+I: VIMS selector 001	'Increment index of Effect List'
+I: 	FORMAT: '%d', where:
+I: 		Argument 0 is Step size
+I: VIMS selector 002	'Decrement index of Effect List'
+I: 	FORMAT: '%d', where:
+I: 		Argument 0 is Step size
+I: VIMS selector 003	'Put selected effect in Effect List to current sample and current entry'
+I: VIMS selector 004	'Print current settings'
+I: 	FORMAT: '%d', where:
+I: 		Argument 0 is Sample or Stream ID (depends on playmode, 0=current playing)
+I: VIMS selector 005	'GUI: Get a list of all tracks (unadvised!)'
+I: VIMS selector 006	'Camera/Projection calibration setup'
+I: VIMS selector 008	'Toggle grayscale preview on/off (default=off)'
+I: VIMS selector 010	'Play forward'
+I: VIMS selector 011	'Play backward'
+I: VIMS selector 012	'Play stop'
+I: VIMS selector 013	'Skip N frames forward'
+I: 	FORMAT: '%d', where:
+I: 		Argument 0 is Number of frames
+I: VIMS selector 014	'Skip N frames backward'
+I: 	FORMAT: '%d', where:
+I: 		Argument 0 is Number of frames
+I: VIMS selector 015	'Skip N seconds forward'
+I: 	FORMAT: '%d', where:
+I: 		Argument 0 is Number of seconds
+I: VIMS selector 016	'Skip N seconds backward'
+I: 	FORMAT: '%d', where:
+I: 		Argument 0 is Number of seconds
+I: VIMS selector 017	'Go to starting position'
+I: VIMS selector 018	'Go to ending position'
+I: VIMS selector 019	'Set current frame number'
+I: 	FORMAT: '%d', where:
+I: 		Argument 0 is Frame number
+I: VIMS selector 020	'Change trickplay speed'
+I: 	FORMAT: '%d', where:
+I: 		Argument 0 is Frame step
+I: VIMS selector 021	'Change frameduplication'
+I: 	FORMAT: '%d', where:
+I: 		Argument 0 is Frame repeat
+I: VIMS selector 022	'Start built-in UDP mcast server (YUV planar)'
+I: 	FORMAT: '%d', where:
+I: 		Argument 0 is 0=Color,1=Grayscale (default)
+I: VIMS selector 023	'Stop built-in UDP mcast server'
+I: VIMS selector 020	'Change trickplay speed depending on play direction'
+I: 	FORMAT: '%d', where:
+I: 		Argument 0 is Frame step
+I: VIMS selector 025	'Start/Stop writing frames to a shared memory segment'
+I: 	FORMAT: '%d', where:
+I: 		Argument 0 is Status (0=off,1=on)
+I: VIMS selector 033	'Macro keystroke recorder/playback'
+I: 	FORMAT: '%d %d', where:
+I: 		Argument 0 is Keep or reset (1=reset)
+I: 		Argument 1 is Macro status (0=disabled,1=record,2=playing)
+I: VIMS selector 034	'Select a bank to store macro keystrokes'
+I: 	FORMAT: '%d', where:
+I: 		Argument 0 is Bank ID
+I: VIMS selector 035	'Continuous sample play, do not restart samples'
+I: 	FORMAT: '%d', where:
+I: 		Argument 0 is 0=continious play ,1=sample restart (default)
+I: VIMS selector 040	'(OUT) Write video output to (special) file in yuv4mpeg format'
+I: 	FORMAT: '%s', where:
+I: 		Argument 0 is Filename
+I: VIMS selector 041	'(OUT) Stop writing video output to yuv4mpeg file'
+I: VIMS selector 042	'TCP: Send a frame to a connected veejay client'
+I: VIMS selector 045	'OUT: Start writing video output to a vloopback device'
+I: 	FORMAT: '%d', where:
+I: 		Argument 0 is Vloopback pipe number
+I: VIMS selector 046	'OUT: Stop writing to vloopback device'
+I: VIMS selector 047	'Push current playing sample or stream as viewport input'
+I: VIMS selector 048	'Set render depth, use 1 to render chain entries 0,1 and 2 of underlying sample, use 2 to toggle on/off'
+I: 	FORMAT: '%d', where:
+I: 		Argument 0 is Depth switch
+I: VIMS selector 049	'Toggle feedback loop'
+I: 	FORMAT: '%d', where:
+I: 		Argument 0 is Enable/disable
+I: VIMS selector 050	'Paste frames from buffer at frame into edit descision list'
+I: 	FORMAT: '%d', where:
+I: 		Argument 0 is EDL position
+I: VIMS selector 051	'Copy frames from edit descision list to buffer'
+I: 	FORMAT: '%d %d', where:
+I: 		Argument 0 is EDL start position
+I: 		Argument 1 is EDL end position
+I: VIMS selector 052	'Delete frames from editlist (no undo!)'
+I: 	FORMAT: '%d %d', where:
+I: 		Argument 0 is EDL start position
+I: 		Argument 1 is EDL end position
+I: VIMS selector 053	'Crop frames from edit descision list to buffer'
+I: 	FORMAT: '%d %d', where:
+I: 		Argument 0 is EDL start position
+I: 		Argument 1 is EDL end position
+I: VIMS selector 054	'Cut frames from edit descision list to buffer'
+I: 	FORMAT: '%d %d', where:
+I: 		Argument 0 is EDL start position
+I: 		Argument 1 is EDL end position
+I: VIMS selector 055	'Add video file to edit descision list'
+I: 	FORMAT: '%s', where:
+I: 		Argument 0 is Filename
+I: VIMS selector 056	'GUI: Append a file to the plain EDL and create a new sample (unadvised!)'	
+I: 	FORMAT: '%d %s', where:
+I: 		Argument 0 is existing or new ID
+I: 		Argument 1 is Filename
+I: VIMS selector 058	'Save (selection of) edit descision list to new file'
+I: 	FORMAT: '%d %d %s', where:
+I: 		Argument 0 is EDL start position (0=start position)
+I: 		Argument 1 is EDL end position (0=end position)
+I: 		Argument 2 is Filename
+I: VIMS selector 059	'Load edit descision list from file'
+I: 	FORMAT: '%s', where:
+I: 		Argument 0 is Filename
+I: VIMS selector 070	'VIMS: pretend playmode is sample (offline sample editing)'
+I: VIMS selector 071	'VIMS: pretend playmode is tag (offline stream editing)'
+I: VIMS selector 072	'VIMS: actions depend on playback mode'
+I: VIMS selector 080	'Execute VIMS bundle'
+I: 	FORMAT: '%d', where:
+I: 		Argument 0 is Bundle ID
+I: VIMS selector 081	'Delete a VIMS bundle'
+I: 	FORMAT: '%d', where:
+I: 		Argument 0 is Bundle ID
+I: VIMS selector 082	'Add a new bundle to the event list'
+I: 	FORMAT: '%d %s', where:
+I: 		Argument 0 is Bundle ID (0=new, 1=overwrite existing)
+I: 		Argument 1 is VIMS text
+I: VIMS selector 083	'Attach/Detach a Key to VIMS Event'
+I: 	FORMAT: '%d %d %d %s', where:
+I: 		Argument 0 is VIMS ID
+I: 		Argument 1 is SDL Key symbol
+I: 		Argument 2 is SDL Key modifier (0=none,1=alt,2=ctrl,3=shift)
+I: 		Argument 3 is VIMS message
+I: VIMS selector 084	'Veejay load action file'
+I: 	FORMAT: '%s', where:
+I: 		Argument 0 is Filename
+I: VIMS selector 085	'Veejay save action file'
+I: 	FORMAT: '%d %s', where:
+I: 		Argument 0 is Mode (0=only Bundles,1=save edl/sample list)
+I: 		Argument 1 is Filename
+I: VIMS selector 086	'Capture Effect Chain to a new Bundle'
+I: VIMS selector 100	'Create a new sample'
+I: 	FORMAT: '%d %d', where:
+I: 		Argument 0 is Starting position
+I: 		Argument 1 is Ending position
+I: VIMS selector 101	'Select and play sample'
+I: 	FORMAT: '%d', where:
+I: 		Argument 0 is Sample ID (0=current playing, -1=last created, > 0 = Sample ID)
+I: VIMS selector 102	'Change looptype of sample'
+I: 	FORMAT: '%d %d', where:
+I: 		Argument 0 is Sample ID (0=current playing, -1=last created, > 0 = Sample ID)
+I: 		Argument 1 is Looptype (0=None,1=Normal,2=Pingpong)
+I: VIMS selector 103	'Change title of sample'
+I: 	FORMAT: '%d %s', where:
+I: 		Argument 0 is Sample ID (0=current playing, -1=last created, > 0 = Sample ID)
+I: 		Argument 1 is Title
+I: VIMS selector 104	'Change playback speed of sample'
+I: 	FORMAT: '%d %d', where:
+I: 		Argument 0 is Sample ID (0=current playing, -1=last created, > 0 = Sample ID)
+I: 		Argument 1 is Speed (0=pause, > 0  and < (end-start)
+I: VIMS selector 105	'Change start position of sample'
+I: 	FORMAT: '%d %d', where:
+I: 		Argument 0 is Sample ID (0=current playing, -1=last created, > 0 = Sample ID)
+I: 		Argument 1 is Frame number
+I: VIMS selector 106	'Change end position of sample'
+I: 	FORMAT: '%d %d', where:
+I: 		Argument 0 is Sample ID (0=current playing, -1=last created, > 0 = Sample ID)
+I: 		Argument 1 is Frame number
+I: VIMS selector 107	'Change frame repeat for this sample'
+I: 	FORMAT: '%d %d', where:
+I: 		Argument 0 is Sample ID (0=current playing, -1=last created, > 0 = Sample ID)
+I: 		Argument 1 is Frame repeat
+I: VIMS selector 108	'Set in point in sample'
+I: 	FORMAT: '%d %d', where:
+I: 		Argument 0 is Sample ID (0=current playing, -1=last created, > 0 = Sample ID)
+I: 		Argument 1 is Position
+I: VIMS selector 109	'Set out point in sample'
+I: 	FORMAT: '%d %d', where:
+I: 		Argument 0 is Sample ID (0=current playing, -1=last created, > 0 = Sample ID)
+I: 		Argument 1 is Position
+I: VIMS selector 110	'Set in and out points in sample'
+I: 	FORMAT: '%d %d %d', where:
+I: 		Argument 0 is Sample ID (0=current playing, -1=last created, > 0 = Sample ID)
+I: 		Argument 1 is Starting position
+I: 		Argument 2 is Ending position
+I: VIMS selector 111	'Clear in and out points'
+I: 	FORMAT: '%d', where:
+I: 		Argument 0 is Sample ID (0=current playing, -1=last created, > 0 = Sample ID)
+I: VIMS selector 112	'Enable effect chain of sample'
+I: 	FORMAT: '%d', where:
+I: 		Argument 0 is Sample ID (0=current playing, -1=last created, > 0 = Sample ID)
+I: VIMS selector 113	'Disable effect chain of sample'
+I: 	FORMAT: '%d', where:
+I: 		Argument 0 is Sample ID (0=current playing, -1=last created, > 0 = Sample ID)
+I: VIMS selector 114	'Skip N frames forward or backward'
+I: 	FORMAT: '%d %d', where:
+I: 		Argument 0 is Sample ID (0=current playing, -1=last created, > 0 = Sample ID)
+I: 		Argument 1 is Increment value
+I: VIMS selector 120	'Delete sample'
+I: 	FORMAT: '%d', where:
+I: 		Argument 0 is Sample ID >= 1
+I: VIMS selector 121	'Delete all samples (caution!)'
+I: VIMS selector 125	'Load samples from file'
+I: 	FORMAT: '%s', where:
+I: 		Argument 0 is Filename
+I: VIMS selector 126	'Save samples to file'
+I: 	FORMAT: '%s', where:
+I: 		Argument 0 is Filename
+I: VIMS selector 127	'Copy sample to new'
+I: 	FORMAT: '%d', where:
+I: 		Argument 0 is Sample ID (0=current playing, -1=last created, > 0 = Sample ID)
+I: VIMS selector 128	'Change mixing position of sample'
+I: 	FORMAT: '%d %d %d', where:
+I: 		Argument 0 is Sample ID (0=current playing, -1=last created, > 0 = Sample ID)
+I: 		Argument 1 is Chain entry
+I: 		Argument 2 is Relative position
+I: VIMS selector 130	'Start recording from sample'
+I: 	FORMAT: '%d %d', where:
+I: 		Argument 0 is Number of frames (0=sample duration)
+I: 		Argument 1 is Auto Play (0=disable, 1=enable)
+I: VIMS selector 131	'Stop recording from this sample'
+I: VIMS selector 143	'Set sample's starting and ending position'
+I: 	FORMAT: '%d %d %d', where:
+I: 		Argument 0 is Sample ID (0=current playing, -1=last created, > 0 = Sample ID)
+I: 		Argument 1 is Starting position
+I: 		Argument 2 is Ending position
+I: VIMS selector 144	'Switch between loop types'
+I: 	FORMAT: '%d %d', where:
+I: 		Argument 0 is Sample ID (0=current playing, -1=last created, > 0 = Sample ID)
+I: 		Argument 1 is Looptype (0=None, 1=Normal, 2=Pingpong)
+I: VIMS selector 145	'Change KF play status for entry X'
+I: 	FORMAT: '%d %d', where:
+I: 		Argument 0 is Entry ID
+I: 		Argument 1 is Status value
+I: VIMS selector 146	'Get keyframes for parameter Y on entry X'
+I: 	FORMAT: '%d %d', where:
+I: 		Argument 0 is Entry ID
+I: 		Argument 1 is Parameter ID
+I: VIMS selector 145	'Clear KF series on entry X'
+I: 	FORMAT: '%d', where:
+I: 		Argument 0 is Entry ID
+I: VIMS selector 148	'Hold frame (pause and resume from frame position + pause duration)'
+I: 	FORMAT: '%d %d %d', where:
+I: 		Argument 0 is Sample ID (0=current playing, -1=last created, > 0 = Sample ID)
+I: 		Argument 1 is Minimum delay offset (0=1 frame)
+I: 		Argument 2 is Initial delay ( > 4 frames < 300 )
+I: VIMS selector 149	'Play next sample in queue'
+I: VIMS selector 150	'Store current frame as starting position of new sample'
+I: VIMS selector 151	'Store current frame as ending position of a new sample ( and commit )'
+I: VIMS selector 160	'Increase projection/camera point'
+I: 	FORMAT: '%d %d', where:
+I: 		Argument 0 is X increment
+I: 		Argument 1 is Y increment
+I: VIMS selector 161	'Decrease projection/camera point'
+I: 	FORMAT: '%d %d', where:
+I: 		Argument 0 is X increment
+I: 		Argument 1 is Y increment
+I: VIMS selector 162	'Set a viewport point using scale'
+I: 	FORMAT: '%d %d %d %d', where:
+I: 		Argument 0 is Point number
+I: 		Argument 1 is Scale factor
+I: 		Argument 2 is X
+I: 		Argument 3 is Y
+I: VIMS selector 163	'Get viewport points using scale'
+I: 	FORMAT: '%d', where:
+I: 		Argument 0 is Grid size
+I: VIMS selector 164	'Push viewport to secundary input'
+I: 	FORMAT: '%d %d', where:
+I: 		Argument 0 is On/Off
+I: 		Argument 1 is Color=0, Grayscale=1
+I: VIMS selector 165	'Enable/disable viewport rendering'
+I: VIMS selector 201	'Select and play stream'
+I: 	FORMAT: '%d', where:
+I: 		Argument 0 is Stream ID >= 1
+I: VIMS selector 202	'Change RGB color of solid stream'
+I: 	FORMAT: '%d %d %d %d', where:
+I: 		Argument 0 is Stream ID (-1=last created, > 0 = Stream ID)
+I: 		Argument 1 is Red
+I: 		Argument 2 is Green
+I: 		Argument 3 is Blue
+I: VIMS selector 203	'Change title of stream'
+I: 	FORMAT: '%d %s', where:
+I: 		Argument 0 is Stream ID (-1=last created, > 0 = Stream ID)
+I: 		Argument 1 is Title
+I: VIMS selector 207	'Set brightness value for Video4linux stream'
+I: 	FORMAT: '%d %d', where:
+I: 		Argument 0 is Stream ID (-1=last created, > 0 = Stream ID)
+I: 		Argument 1 is Value 0-65535
+I: VIMS selector 208	'Set constrast value for Video4linux stream'
+I: 	FORMAT: '%d %d', where:
+I: 		Argument 0 is Stream ID (-1=last created, > 0 = Stream ID)
+I: 		Argument 1 is Value 0-65535
+I: VIMS selector 207	'Set hue value for Video4linux stream'
+I: 	FORMAT: '%d %d', where:
+I: 		Argument 0 is Stream ID (-1=last created, > 0 = Stream ID)
+I: 		Argument 1 is Value 0-65535
+I: VIMS selector 210	'Set color value for Video4linux stream'
+I: 	FORMAT: '%d %d', where:
+I: 		Argument 0 is Stream ID (-1=last created, > 0 = Stream ID)
+I: 		Argument 1 is Value 0-65535
+I: VIMS selector 211	'Set white balance value for Video4linux stream'
+I: 	FORMAT: '%d %d', where:
+I: 		Argument 0 is Stream ID (-1=last created, > 0 = Stream ID)
+I: 		Argument 1 is Value 0-65535
+I: VIMS selector 212	'Set ficticious stream length'
+I: 	FORMAT: '%d', where:
+I: 		Argument 0 is Number of frames
+I: VIMS selector 213	'Disable effect chain of stream'
+I: 	FORMAT: '%d', where:
+I: 		Argument 0 is Stream ID (-1=last created, > 0 = Stream ID)
+I: VIMS selector 211	'Set saturation value for Video4linux stream'
+I: 	FORMAT: '%d %d', where:
+I: 		Argument 0 is Stream ID (-1=last created, > 0 = Stream ID)
+I: 		Argument 1 is Value 0-65535
+I: VIMS selector 220	'Delete stream'
+I: 	FORMAT: '%d', where:
+I: 		Argument 0 is Stream ID >= 1
+I: VIMS selector 228	'Start offline recording from stream'
+I: 	FORMAT: '%d %d %d', where:
+I: 		Argument 0 is Stream ID (-1=last created, > 0 = Stream ID)
+I: 		Argument 1 is Number of frames
+I: 		Argument 2 is Auto Play (0=disable,1=enable)
+I: VIMS selector 229	'Stop offline recording from this stream'
+I: VIMS selector 230	'Start recording from stream'
+I: 	FORMAT: '%d %d', where:
+I: 		Argument 0 is Number of frames
+I: 		Argument 1 is Auto Play (0=disable,1=enable)
+I: VIMS selector 231	'Stop recording from this stream'
+I: 	FORMAT: '%d %d', where:
+I: VIMS selector 240	'Open video4linux device as new input stream'
+I: 	FORMAT: '%d %d', where:
+I: 		Argument 0 is Device Number (0=/dev/video0,1=/dev/video1, ... )
+I: 		Argument 1 is Channel Number (0=TV,1=composite,2=svideo)
+I: VIMS selector 241	'Open dv1394 device as new input stream'
+I: 	FORMAT: '%d', where:
+I: 		Argument 0 is Channel number
+I: VIMS selector 242	'Solid RGB color fill as new input stream'
+I: 	FORMAT: '%d %d %d', where:
+I: 		Argument 0 is Red
+I: 		Argument 1 is Green
+I: 		Argument 2 is Blue
+I: VIMS selector 243	'Open yuv4mpeg (special) file as new input stream'
+I: 	FORMAT: '%s', where:
+I: 		Argument 0 is Filename
+I: VIMS selector 244	'Load calibration data'
+I: 	FORMAT: '%s', where:
+I: 		Argument 0 is Filename
+I: VIMS selector 245	'Open TCP veejay connection (peer to peer, raw data) as new input stream'
+I: 	FORMAT: '%d %s', where:
+I: 		Argument 0 is Port number
+I: 		Argument 1 is Hostname or IP address
+I: VIMS selector 246	'Open UDP multicast as new input stream'
+I: 	FORMAT: '%d %s', where:
+I: 		Argument 0 is Port Number
+I: 		Argument 1 is Multicast Address
+I: VIMS selector 247	'Open image from file as new input stream'
+I: 	FORMAT: '%s', where:
+I: 		Argument 0 is Filename
+I: VIMS selector 248	'Capture a black/light frame and subtract it from the video stream'
+I: 	FORMAT: '%d %d %d %d', where:
+I: 		Argument 0 is Tag ID
+I: 		Argument 1 is Frame Duration (Use 0 to drop blackframe)
+I: 		Argument 2 is Median Radius (0=Average, N=NxN square)
+I: 		Argument 3 is Blackframe=0,Lightframe=1
+I: VIMS selector 249	'Write calibration data to file'
+I: 	FORMAT: '%s', where:
+I: 		Argument 0 is Filename
+I: VIMS selector 250	'Open a generator plugin that was loaded. use .so name'
+I: 	FORMAT: '%d %s', where:
+I: 		Argument 0 is Optional argument (some value)
+I: 		Argument 1 is .so plugin filename (must have been loaded at startup)
+I: VIMS selector 251	'Request shared resource from another veejay'
+I: 	FORMAT: '%d', where:
+I: 		Argument 0 is Port number
+I: VIMS selector 252	'New splitted screen'
+I: 	FORMAT: '%d %d', where:
+I: 		Argument 0 is Number of (vertical) screens
+I: 		Argument 1 is Screen layout (binary)
+I: VIMS selector 254	'Suspend Veejay (caution!)'
+I: VIMS selector 300	'Set audio volume'
+I: 	FORMAT: '%d', where:
+I: 		Argument 0 is Volume 0-100
+I: VIMS selector 301	'Enable / Disable Fullscreen video output'
+I: 	FORMAT: '%d', where:
+I: 		Argument 0 is On = 1, Off=0
+I: VIMS selector 302	'Set codec to use for recording (global setting)'
+I: 	FORMAT: '%s', where:
+I: 		Argument 0 is Codec name (use 'x' to see list)
+I: VIMS selector 303	'Change playback mode'
+I: 	FORMAT: '%d', where:
+I: 		Argument 0 is Playback (2=plain,1=stream,0=sample)
+I: VIMS selector 305	'Switch between sample and stream playback'
+I: VIMS selector 306	'Enable audio playback'
+I: VIMS selector 307	'Disable audio playback'
+I: VIMS selector 308	'Set current sample bank'
+I: 	FORMAT: '%d', where:
+I: 		Argument 0 is Bank number
+I: VIMS selector 309	'Play stream or sample slot (depends on current playmode)'
+I: 	FORMAT: '%d', where:
+I: 		Argument 0 is Slot number
+I: VIMS selector 315	'Start sample randomizer'
+I: 	FORMAT: '%d', where:
+I: 		Argument 0 is Mode (0=Random duration, 1=Sample duration)
+I: VIMS selector 316	'Stop sample randomizer'
+I: VIMS selector 320	'Start recording now and play when finished'
+I: VIMS selector 321	'Stop recording'
+I: VIMS selector 322	'Start recording'
+I: VIMS selector 323	'Change between box or triangle filter for sampling purposes'
+I: VIMS selector 324	'Bezerk mode toggle '
+I: VIMS selector 325	'More/Less verbosive console output'
+I: VIMS selector 326	'(OUT) Resize SDL video window'
+I: 	FORMAT: '%d %d %d %d', where:
+I: 		Argument 0 is Width
+I: 		Argument 1 is Height
+I: 		Argument 2 is X offset
+I: 		Argument 3 is Y offset
+I: VIMS selector 327	'Change playback mode'
+I: 	FORMAT: '%d', where:
+I: 		Argument 0 is Playback mode (0=sample,1=stream,2=plain)
+I: VIMS selector 328	'Play sample / stream'
+I: 	FORMAT: '%d %d', where:
+I: 		Argument 0 is Sample or Stream ID (0=current playing, -1=last created, > 0 = ID)
+I: 		Argument 1 is Source type (0=sample,1=stream)
+I: VIMS selector 329	'Change YUV <-> RGB conversion (unadvised)'
+I: 	FORMAT: '%d', where:
+I: 		Argument 0 is Mode (0=GIMP,1=CCIR701,2=broken)
+I: VIMS selector 330	'Save output frame to file'
+I: 	FORMAT: '%d %d %s', where:
+I: 		Argument 0 is Width
+I: 		Argument 1 is Height
+I: 		Argument 2 is Filename
+I: VIMS selector 331	'Editlist cache mode toggle'
+I: VIMS selector 001	'GUI: Get Calibrated image (raw)'
+I: 	FORMAT: '%d %d', where:
+I: 		Argument 0 is ID
+I: 		Argument 1 is Type
+I: VIMS selector 001	'GUI: Get preview image (raw RGB24)'
+I: 	FORMAT: '%d %d', where:
+I: 		Argument 0 is Width
+I: 		Argument 1 is Height
+I: VIMS selector 334	'Enable/Disable sync correction'
+I: 	FORMAT: '%d', where:
+I: 		Argument 0 is 0=off,1=on
+I: VIMS selector 335	'Change playback engine framerate'
+I: 	FORMAT: '%d', where:
+I: 		Argument 0 is Multiple by 100 (ie. for 25fps, use 2500)
+I: VIMS selector 339	'Take current frame as Mask for this Effect'
+I: VIMS selector 340	'Set sequence play on or off'
+I: 	FORMAT: '%d', where:
+I: 		Argument 0 is Status 0=off,1=on
+I: VIMS selector 341	'Add a sample to the sequence'
+I: 	FORMAT: '%d %d', where:
+I: 		Argument 0 is Seq ID
+I: 		Argument 1 is Sample ID
+I: VIMS selector 342	'Del sample from sequence slot'
+I: 	FORMAT: '%d', where:
+I: 		Argument 0 is Seq ID
+I: VIMS selector 350	'Increment current Channel ID on selected chain entry'
+I: 	FORMAT: '%d', where:
+I: 		Argument 0 is Increment vale
+I: VIMS selector 351	'Decrement current Channel ID on selected chain entry'
+I: 	FORMAT: '%d', where:
+I: 		Argument 0 is Decrement value
+I: VIMS selector 352	'Enable or disable Effect Chain for ALL samples or streams'
+I: 	FORMAT: '%d', where:
+I: 		Argument 0 is On = 1, Off= 0
+I: VIMS selector 353	'Enable Effect Chain'
+I: VIMS selector 354	'Disable Effect Chain'
+I: VIMS selector 355	'Reset Effect Chain'
+I: 	FORMAT: '%d', where:
+I: 		Argument 0 is Sample or Stream ID (0=current playing, -1=last created, > 0 = ID)
+I: VIMS selector 356	'Fade in effect chain'
+I: 	FORMAT: '%d %d', where:
+I: 		Argument 0 is Sample or Stream ID (0=current playing, -1=last created, > 0 = ID)
+I: 		Argument 1 is Duration in frames
+I: VIMS selector 357	'Fade out effet chain'
+I: 	FORMAT: '%d %d', where:
+I: 		Argument 0 is Sample or Stream ID (0=current playing, -1=last created, > 0 = ID)
+I: 		Argument 1 is Duration in frames
+I: VIMS selector 358	'GUI: Get effect chain'
+I: 	FORMAT: '%d', where:
+I: 		Argument 0 is Sample or Stream ID (0=current playing, -1=last created, > 0 = ID)
+I: VIMS selector 359	'Set Chain Index'
+I: 	FORMAT: '%d', where:
+I: 		Argument 0 is Index value
+I: VIMS selector 360	'Add effect to chain entry with default values'
+I: 	FORMAT: '%d %d %d', where:
+I: 		Argument 0 is Sample or Stream ID (0=current playing, -1=last created, > 0 = ID)
+I: 		Argument 1 is Chain Index (-1=current)
+I: 		Argument 2 is Effect ID
+I: VIMS selector 361	'Preset effect on chain entry'
+I: 	FORMAT: '%d %d %d %d %d %d %d %d %d %d %d', where:
+I: 		Argument 0 is Sample or Stream ID (0=current playing, -1=last created, > 0 = ID)
+I: 		Argument 1 is Chain Index (-1=current
+I: 		Argument 2 is Effect ID
+I: 		Argument 3 is Parameter 0
+I: 		Argument 4 is Parameter 1
+I: 		Argument 5 is Parameter 2
+I: 		Argument 6 is Parameter 3
+I: 		Argument 7 is Parameter 4
+I: 		Argument 8 is Parameter 5
+I: 		Argument 9 is Parameter 6
+I: 		Argument 10 is Parameter 7
+I: VIMS selector 362	'Set a parameter value'
+I: 	FORMAT: '%d %d %d %d', where:
+I: 		Argument 0 is Sample or Stream ID (0=current playing, -1=last created, > 0 = ID)
+I: 		Argument 1 is Chain Index (-1=current)
+I: 		Argument 2 is Parameter number
+I: 		Argument 3 is Value
+I: VIMS selector 363	'Enable effect on chain index'
+I: 	FORMAT: '%d %d', where:
+I: 		Argument 0 is Sample or Stream ID (0=current playing, -1=last created, > 0 = ID)
+I: 		Argument 1 is Chain Index (-1=current)
+I: VIMS selector 364	'Disable effect on chain index'
+I: 	FORMAT: '%d %d', where:
+I: 		Argument 0 is Sample or Stream ID (0=current playing, -1=last created, > 0 = ID)
+I: 		Argument 1 is Chain Index (-1=current)
+I: VIMS selector 365	'Reset effect to default'
+I: 	FORMAT: '%d %d', where:
+I: 		Argument 0 is Sample or Stream ID (0=current playing, -1=last created, > 0 = ID)
+I: 		Argument 1 is Chain Index (-1=current)
+I: VIMS selector 366	'Set mixing channel'
+I: 	FORMAT: '%d %d %d', where:
+I: 		Argument 0 is Sample or Stream ID (0=current playing, -1=last created, > 0 = ID)
+I: 		Argument 1 is Chain Index (-1=current)
+I: 		Argument 2 is Sample ID
+I: VIMS selector 367	'Set mixing source type'
+I: 	FORMAT: '%d %d %d', where:
+I: 		Argument 0 is Sample or Stream ID (0=current playing, -1=last created, > 0 = ID)
+I: 		Argument 1 is Chain Index (-1=current)
+I: 		Argument 2 is Source Type (0=sample,1=stream)
+I: VIMS selector 368	'Set mixing channel and source type'
+I: 	FORMAT: '%d %d %d %d', where:
+I: 		Argument 0 is Sample or Stream ID (0=current playing, -1=last created, > 0 = ID)
+I: 		Argument 1 is Chain Index (-1=current)
+I: 		Argument 2 is Source Type (0=sample,1=stream)
+I: 		Argument 3 is Sample or Stream ID
+I: VIMS selector 369	'Reset chain index'
+I: 	FORMAT: '%d %d', where:
+I: 		Argument 0 is Sample or Stream ID (0=current playing, -1=last created, > 0 = ID)
+I: 		Argument 1 is Chain Index (-1=current)
+I: VIMS selector 370	'Set opacity of Effect Chain'
+I: 	FORMAT: '%d %d', where:
+I: 		Argument 0 is Sample or Stream ID (0=current playing, -1=last created, > 0 = ID)
+I: 		Argument 1 is Opacity value [0-255]
+I: VIMS selector 371	'Decrement current FX chain entry'
+I: 	FORMAT: '%d', where:
+I: 		Argument 0 is Decrement value
+I: VIMS selector 372	'Increment current FX chain entry'
+I: 	FORMAT: '%d', where:
+I: 		Argument 0 is Increment value
+I: VIMS selector 373	'Change source type of a chain entry'
+I: 	FORMAT: '%d %d', where:
+I: 		Argument 0 is Chain entry
+I: 		Argument 1 is Source type (0=Sample, 1=Stream)
+I: VIMS selector 374	'Increment current value of a parameter'
+I: 	FORMAT: '%d %d', where:
+I: 		Argument 0 is Parameter number
+I: 		Argument 1 is Step size
+I: VIMS selector 375	'Decrement current value of a parameter'
+I: 	FORMAT: '%d %d', where:
+I: 		Argument 0 is Parameter number
+I: 		Argument 1 is Step size
+I: VIMS selector 376	'Enable / disable Effect Chain'
+I: VIMS selector 377	'Enable / disable effect on current entry'
+I: 	FORMAT: '%d %d', where:
+I: VIMS selector 382	'Follow to sample #B after finishing fade from sample #A'
+I: 	FORMAT: '%d', where:
+I: 		Argument 0 is 0=On, 1=Off
+I: VIMS selector 387	'On screen logging (if enabled)'
+I: VIMS selector 388	'Print help in OSD (if available)'
+I: VIMS selector 399	'Print copyright'
+I: VIMS selector 390	'Set font position'
+I: 	FORMAT: '%d %d', where:
+I: 		Argument 0 is X position
+I: 		Argument 1 is Y position
+I: VIMS selector 391	'Set font color'
+I: 	FORMAT: '%d %d %d %d %d', where:
+I: 		Argument 0 is Red
+I: 		Argument 1 is Green
+I: 		Argument 2 is Blue
+I: 		Argument 3 is Alpha
+I: 		Argument 4 is 0=Transparent 1=BG 2=FG
+I: VIMS selector 392	'Set font type and font size'
+I: 	FORMAT: '%d %d', where:
+I: 		Argument 0 is Font type
+I: 		Argument 1 is Font size
+I: VIMS selector 393	'Add a subtitle sequence'
+I: 	FORMAT: '%d %d %d %d %d %s', where:
+I: 		Argument 0 is Subtitle sequence (0=new)
+I: 		Argument 1 is Start position
+I: 		Argument 2 is End position
+I: 		Argument 3 is X position
+I: 		Argument 4 is Y position
+I: 		Argument 5 is Text
+I: VIMS selector 394	'Delete a subtitle sequence'
+I: 	FORMAT: '%d', where:
+I: 		Argument 0 is Subtitle sequence
+I: VIMS selector 395	'Update a subtitle sequence'
+I: 	FORMAT: '%d %d %d %s', where:
+I: 		Argument 0 is Subtitle sequence
+I: 		Argument 1 is Start position
+I: 		Argument 2 is End position
+I: 		Argument 3 is Text
+I: VIMS selector 396	'Export subtitles to SRT'
+I: 	FORMAT: '%s', where:
+I: 		Argument 0 is Filename
+I: VIMS selector 397	'Import subtitles from SRT'
+I: 	FORMAT: '%s', where:
+I: 		Argument 0 is Filename
+I: VIMS selector 398	'Select a subtitle sequence'
+I: 	FORMAT: '%d', where:
+I: 		Argument 0 is Subtitle sequence
+I: VIMS selector 399	'Toggle OSD status'
+I: VIMS selector 400	'GUI: Get video information details'
+I: VIMS selector 401	'GUI: Get all effects'
+I: VIMS selector 402	'GUI: Get EDL'
+I: VIMS selector 403	'GUI: Get all bundles'
+I: VIMS selector 405	'GUI: Get a list of all streams (unadvised!)'
+I: 	FORMAT: '%d', where:
+I: 		Argument 0 is stream offset
+I: VIMS selector 408	'GUI: Get a list of all samples'
+I: 	FORMAT: '%d', where:
+I: 		Argument 0 is sample offset
+I: VIMS selector 409	'GUI: Get video4linux properties'
+I: 	FORMAT: '%d', where:
+I: 		Argument 0 is Stream ID (-1=last created, > 0 = Stream ID)
+I: VIMS selector 410	'GUI: Get effect chain index details'
+I: 	FORMAT: '%d %d', where:
+I: 		Argument 0 is Sample or Stream ID (0=current playing, -1=last created, > 0 = ID)
+I: 		Argument 1 is Chain Index
+I: VIMS selector 411	'GUI: Get all VIMS events'
+I: VIMS selector 412	'GUI: Get console output'
+I: VIMS selector 413	'GUI: Get sample or stream information (unadivsed!)'
+I: 	FORMAT: '%d %d', where:
+I: 		Argument 0 is Sample or Stream ID (0=current playing, -1=last created, > 0 = ID)
+I: 		Argument 1 is Source Type (0=sample,1=stream)
+I: VIMS selector 414	'GUI: Get sample options'
+I: 	FORMAT: '%d %d', where:
+I: 		Argument 0 is Sample or Stream ID (0=current playing, -1=last created, > 0 = ID)
+I: 		Argument 1 is Source Type (0=sample,1=stream)
+I: VIMS selector 415	'GUI: Get all devices and their locations'
+I: VIMS selector 416	'GUI: Get list of loaded fonts'
+I: VIMS selector 417	'GUI: Get list of loaded subtitle sequences'
+I: VIMS selector 418	'GUI: Get subtitle sequence'
+I: 	FORMAT: '%d', where:
+I: 		Argument 0 is Subtitle sequence
+I: VIMS selector 418	'GUI: Get list of sample sequences'
+I: VIMS selector 420	'GUI: Get all keys'
+I: VIMS selector 421	'GUI: Get all video files starting in cwd'
+I: 	FORMAT: '%d', where:
+I: 		Argument 0 is (unused)
+I: VIMS selector 422	'Get sample stack details'
+I: 	FORMAT: '%d', where:
+I: 		Argument 0 is Sample or Stream ID (0=current playing, -1=last created, > 0 = ID)
+I: VIMS selector 423	'Get image region (x,y,w,h,g)'
+I: 	FORMAT: '%d %d %d %d %d', where:
+I: 		Argument 0 is start X
+I: 		Argument 1 is start Y
+I: 		Argument 2 is width
+I: 		Argument 3 is height
+I: 		Argument 4 is greyscale
+I: VIMS selector 425	'Write back veejay's SHM ID'
+I: 	FORMAT: '%d', where:
+I: 		Argument 0 is Not used yet
+I: VIMS selector 444	'Tell client of new samples immediately after creation (reloaded)'
+I: VIMS selector 600	'Quit Veejay (caution!)'
+I: VIMS selector 600	'End sessions with veejay'
+
+----- The OSC address space -----
+  /
+  /fxlist/
+    /fxlist/inc: Increment index of Effect List
+    /fxlist/dec: Decrement index of Effect List
+    /fxlist/enter: Put selected effect in Effect List to current sample and current entry
+    /fxlist/setbg: Take current frame as Mask for this Effect
+  /ui/
+    /ui/preview: Toggle grayscale preview on/off (default=off)
+  /macro/
+    /macro/macro: Macro keystroke recorder/playback
+    /macro/select: Select a bank to store macro keystrokes
+  /composite/
+    /composite/select: Push current playing sample or stream as viewport input
+  /console/
+    /console/screenshot: Save output frame to file
+    /console/framerate: Change playback engine framerate
+    /console/bezerk: Bezerk mode toggle 
+    /console/resize: (OUT) Resize SDL video window
+    /console/renderdepth: Set render depth, use 1 to render chain entries 0,1 and 2 of underlying sample, use 2 to toggle on/off
+    /console/continuous: Continuous sample play, do not restart samples
+    /console/volume: Set audio volume
+    /console/fullscreen: Enable / Disable Fullscreen video output
+    /console/suspsend: Suspend Veejay (caution!)
+    /console/quit: Quit Veejay (caution!)
+    /console/close: End sessions with veejay
+    /console/dataformat: Set codec to use for recording (global setting)
+    /console/playmode: Change playback mode
+    /console/load: Load samples from file
+    /console/save: Save samples to file
+    /console/switch: Switch between sample and stream playback
+  /audio/
+    /audio/enable: Enable audio playback
+    /audio/disable: Disable audio playback
+  /bank/
+    /bank/select: Set current sample bank
+    /bank/slot: Play stream or sample slot (depends on current playmode)
+  /record/
+    /record/autostart: Start recording now and play when finished
+    /record/stop: Stop recording
+    /record/start: Start recording
+  /sample/
+    /sample/mode: Change between box or triangle filter for sampling purposes
+    /sample/play: Play sample / stream
+    /sample/start: Store current frame as starting position of new sample
+    /sample/end: Store current frame as ending position of a new sample ( and commit )
+    /sample/new: Create a new sample
+    /sample/select: Select and play sample
+    /sample/delete: Delete sample
+    /sample/looptype: Change looptype of sample
+    /sample/description: Change title of sample
+    /sample/speed: Change playback speed of sample
+    /sample/startposition: Change start position of sample
+    /sample/endposition: Change end position of sample
+    /sample/slow: Change frame repeat for this sample
+    /sample/inpoint: Set in point in sample
+    /sample/outpoint: Set out point in sample
+    /sample/clearpoints: Clear in and out points
+    /sample/edladd: GUI: Append a file to the plain EDL and create a new sample (unadvised!)
+    /sample/killall: Delete all samples (caution!)
+    /sample/copy: Copy sample to new
+    /sample/recstart: Start recording from sample
+    /sample/recstop: Stop recording from this sample
+    /sample/looptoggle: Switch between loop types
+  /sample/rand/
+    /sample/rand/start: Start sample randomizer
+    /sample/rand/stop: Stop sample randomizer
+  /sample/rec/
+    /sample/rec/start: Start recording from sample
+    /sample/rec/start: Start recording from stream
+    /sample/rec/stop: Stop recording from this stream
+  /sample/fx/
+    /sample/fx/on: Enable effect chain of sample
+    /sample/fx/off: Disable effect chain of sample
+    /sample/fx/on: Set ficticious stream length
+    /sample/fx/off: Disable effect chain of stream
+  /stream/
+    /stream/play: Play sample / stream
+    /stream/delete: Delete stream
+    /stream/startcali: Capture a black/light frame and subtract it from the video stream
+    /stream/savecali: Write calibration data to file
+    /stream/unicast: Open TCP veejay connection (peer to peer, raw data) as new input stream
+    /stream/mcast: Open UDP multicast as new input stream
+    /stream/length: Set ficticious stream length
+    /stream/color: Change RGB color of solid stream
+  /stream/new/
+    /stream/new/v4l: Open video4linux device as new input stream
+    /stream/new/dv1394: Open dv1394 device as new input stream
+    /stream/new/solid: Solid RGB color fill as new input stream
+    /stream/new/y4m: Open yuv4mpeg (special) file as new input stream
+    /stream/new/cali: Load calibration data
+    /stream/new/picture: Open image from file as new input stream
+  /stream/offline/
+    /stream/offline/recstart: Start offline recording from stream
+    /stream/offline/recstop: Stop offline recording from this stream
+  /stream/v4l/
+    /stream/v4l/brightness: Set brightness value for Video4linux stream
+    /stream/v4l/contrast: Set constrast value for Video4linux stream
+    /stream/v4l/hue: Set hue value for Video4linux stream
+    /stream/v4l/color: Set color value for Video4linux stream
+    /stream/v4l/whitebalance: Set white balance value for Video4linux stream
+    /stream/v4l/saturation: Set saturation value for Video4linux stream
+  /video/
+    /video/forward: Play forward
+    /video/play: Play forward
+    /video/pause: Play stop
+    /video/nextframe: Skip N frames forward
+    /video/prevframe: Skip N frames backward
+    /video/nextsecond: Skip N seconds forward
+    /video/prevsecond: Skip N seconds backward
+    /video/gotostart: Go to starting position
+    /video/gotoend: Go to ending position
+    /video/frame: Set current frame number
+    /video/speed: Change trickplay speed
+    /video/slow: Change frameduplication
+    /video/speedk: Change trickplay speed depending on play direction
+  /mcast/
+    /mcast/start: Start built-in UDP mcast server (YUV planar)
+    /mcast/end: Stop built-in UDP mcast server
+  /editlist/
+    /editlist/paste: Paste frames from buffer at frame into edit descision list
+    /editlist/copy: Copy frames from edit descision list to buffer
+    /editlist/cut: Cut frames from edit descision list to buffer
+    /editlist/crop: Crop frames from edit descision list to buffer
+    /editlist/add: Add video file to edit descision list
+    /editlist/save: Save (selection of) edit descision list to new file
+    /editlist/load: Load edit descision list from file
+  /sequence/
+    /sequence/status: Set sequence play on or off
+    /sequence/set: Add a sample to the sequence
+    /sequence/del: Del sample from sequence slot
+  /projection/
+    /projection/inc: Increase projection/camera point
+    /projection/dec: Decrease projection/camera point
+    /projection/set: Set a viewport point using scale
+    /projection/stack: Push viewport to secundary input
+    /projection/toggle: Enable/disable viewport rendering
+  /chain/
+    /chain/enable: Enable Effect Chain
+    /chain/disable: Disable Effect Chain
+    /chain/fadein: Fade in effect chain
+    /chain/fadeout: Fade out effet chain
+    /chain/clear: Reset Effect Chain
+    /chain/opacity: Set opacity of Effect Chain
+  /chain/entry/
+    /chain/entry/setarg: Set a parameter value
+    /chain/entry/defaults: Reset effect to default
+    /chain/entry/channel: Set mixing channel
+    /chain/entry/source: Set mixing source type
+    /chain/entry/srccha: Set mixing channel and source type
+    /chain/entry/clear: Reset chain index
+    /chain/entry/up: Increment current FX chain entry
+    /chain/entry/down: Decrement current FX chain entry
+    /chain/entry/srctoggle: Change source type of a chain entry
+    /chain/entry/incarg: Increment current value of a parameter
+    /chain/entry/decarg: Decrement current value of a parameter
+    /chain/entry/state: Enable / disable effect on current entry
+  /chain/channel/
+    /chain/channel/inc: Increment current Channel ID on selected chain entry
+    /chain/channel/dec: Decrement current Channel ID on selected chain entry
+  /display/
+    /display/copyright: Print copyright
+  /vloopback/
+    /vloopback/start: OUT: Start writing video output to a vloopback device
+    /vloopback/stop: OUT: Stop writing to vloopback device
+  /y4m/
+    /y4m/start: (OUT) Write video output to (special) file in yuv4mpeg format
+    /y4m/stop: (OUT) Stop writing video output to yuv4mpeg file
+  /osc/
+    /osc/sender: Setup a OSC sender (Arg 0=host, 1=port)
+...end of OSC address space.
+
+
+I: The OSC command /osc/sender <hostname> <port> will setup an OSC client
+I: which periodically sends veejay's status information. Format below:
+I: /status ( [playback mode], [real fps], [frame num], [sample_id], [fx on/off], [first frame],
+I:           [last_frame],[speed],[slow],[looptype],[in point],[out point],[num samples],
+I: 	      [second per video frame],[cycle count low],[cycle count high],[macro status]) 
+I: 
+
+I: Below follow all effects in Veejay,
+I: Effect numbers starting with 2xx are effects that use
+I: *two* sources (by default a copy of itself)
+I: Use the channel/source commands to select another sample/stream
+I: to mix with.
+I: 
+ [effect num] [effect name] [arg 0 , min/max ] [ arg 1, min/max ] ...
+	0			Dummy Frame		
+			Color			0	0 - 7
+	201			Overlay Magic		
+			Mode			0	1 - 33
+
+			Keep or clear color			1	0 - 1
+	202			Luma Magick		
+			Mode			0	1 - 39
+
+			Opacity A			1	0 - 200
+
+			Opacity B			2	0 - 200
+	203			Map B to A (substract background mask)		
+			Threshold			0	0 - 255
+
+			Mode			1	0 - 1
+
+			Show mask/image			2	0 - 2
+
+			Thinning			3	1 - 100
+	204			Normal Overlay		
+			Opacity			0	0 - 255
+	205			Luma Key		
+			Feather			0	0 - 255
+
+			Min Threshold			1	0 - 255
+
+			Max Threshold			2	0 - 255
+
+			Distance			3	1 - 720
+
+			Mode			4	0 - 2
+	206			Chroma Key (RGB)		
+			Angle			0	1 - 9000
+
+			Red			1	0 - 255
+
+			Green			2	0 - 255
+
+			Blue			3	0 - 255
+
+			Mode			4	0 - 1
+
+			Noise suppression			5	1 - 5500
+	207			Chroma Magic		
+			Mode			0	0 - 25
+
+			Value			1	0 - 255
+	208			Opacity by Threshold		
+			Mode			0	0 - 2
+
+			Threshold A			1	0 - 255
+
+			Threshold B			2	0 - 255
+
+			Opacity			3	0 - 255
+	209			Splitted Screens		
+			Mode			0	0 - 13
+
+			Switch			1	0 - 1
+	210			Colored Border Translation		
+			Size			0	1 - 288
+
+			Color			1	0 - 7
+	211			Frame Border Translation		
+			Size			0	1 - 288
+	212			AlphaLuma Overlay		
+	213			Transition Translate Opacity		
+			Opacity			0	0 - 255
+
+			Width			1	0 - 720
+
+			Height			2	0 - 576
+
+			Ay			3	0 - 576
+
+			Ax			4	0 - 720
+
+			By			5	0 - 576
+
+			Bx			6	0 - 720
+	214			Transition Translate Carot		
+			Opacity			0	0 - 255
+
+			Mode			1	0 - 1
+
+			Point size			2	1 - 720
+
+			By start			3	1 - 576
+
+			By end			4	1 - 576
+
+			Row			5	1 - 720
+	215			Transition Line		
+			Opacity			0	0 - 255
+
+			Line width			1	1 - 720
+
+			Distance			2	2 - 720
+
+			Mode			3	0 - 1
+	216			Transition Translate Blend		
+			Mode			0	0 - 30
+
+			Width			1	1 - 720
+
+			Height			2	1 - 576
+
+			Ax offset			3	1 - 720
+
+			Ay offset			4	1 - 576
+
+			Bx offset			5	1 - 720
+
+			By offset			6	1 - 576
+	217			Transition Fade to Color		
+			Opacity			0	1 - 255
+
+			Color			1	0 - 7
+
+			Frame length			2	1 - 3000
+
+			Mode			3	0 - 1
+	218			Transition Fade to Color by RGB		
+			Opacity			0	1 - 255
+
+			Red			1	1 - 255
+
+			Green			2	1 - 255
+
+			Blue			3	0 - 255
+
+			Mode			4	0 - 1
+
+			Frame length			5	1 - 3000
+	219			Replace Pure White		
+	220			Simple Mask (black and white)		
+			Threshold			0	0 - 255
+
+			Mode			1	0 - 1
+	221			Threshold blur with overlay		
+			Opacity			0	0 - 255
+
+			Min Threshold			1	0 - 255
+
+			Max Threshold			2	0 - 255
+	222			Overlay by Threshold Range		
+			Opacity			0	0 - 255
+
+			Min Threshold			1	0 - 255
+
+			Max Threshold			2	0 - 255
+	223			Transparent Chroma Key (RGB)		
+			Angle			0	1 - 9000
+
+			Red			1	0 - 255
+
+			Green			2	0 - 255
+
+			Blue			3	0 - 255
+
+			Opacity			4	0 - 255
+
+			Noise level			5	0 - 5500
+	224			Transition Wipe		
+			Opacity			0	0 - 255
+
+			Increment			1	0 - 25
+	225			Tracer		
+			Opacity			0	0 - 255
+
+			Buffer length			1	1 - 25
+	226			Magic Tracer		
+			Mode			0	0 - 30
+
+			Length			1	1 - 25
+	227			Strong Luma Overlay		
+			Mode			0	1 - 13
+	228			Blend by Color Key (RGB)		
+			Angle			0	1 - 9000
+
+			Red			1	0 - 255
+
+			Green			2	0 - 255
+
+			Blue			3	0 - 255
+
+			Blend mode			4	0 - 7
+
+			Noise suppression			5	0 - 5500
+	229			Complex Threshold (RGB)		
+			Angle			0	1 - 9000
+
+			Red			1	0 - 255
+
+			Green			2	0 - 255
+
+			Blue			3	0 - 255
+
+			Smoothen			4	0 - 4
+
+			Threshold			5	0 - 255
+	230			Out of Sync -Replace selection-		
+			Vertical size			0	1 - 575
+
+			Mode			1	0 - 1
+
+			Framespeed			2	1 - 250
+	231			Horizontal Sliding Bars		
+			Divider			0	1 - 576
+
+			Top Y			1	0 - 576
+
+			Bot Y			2	0 - 576
+
+			Top X			3	0 - 576
+
+			Bot X			4	0 - 576
+	232			Vertical Sliding Bars		
+			Divider			0	1 - 576
+
+			Top Y			1	0 - 576
+
+			Bot Y			2	0 - 576
+
+			Top X			3	0 - 576
+
+			Bot X			4	0 - 576
+	233			Displacement Map		
+			X displacement			0	1 - 720
+
+			Y displcement			1	1 - 576
+
+			Mode			2	0 - 1
+	234			Binary Overlays		
+			Mode			0	0 - 10
+	235			Dissolve Overlay		
+			Opacity			0	0 - 255
+	236			Normal Overlay (per Channel)		
+			Opacity Y			0	0 - 255
+
+			Opacity Cb			1	0 - 255
+
+			Opacity Cr			2	0 - 255
+	237			Videoplay (timestretched mosaic)		
+			Photos			0	2 - 10
+
+			Waterfall			1	1 - 250
+
+			Mode			2	0 - 3
+	238			VideoWall / Tile Placement		
+			Photos			0	0 - 10
+
+			X Displacement			1	0 - 720
+
+			Y displacement			2	0 - 576
+
+			Lock update			3	0 - 1
+	239			Map B from threshold mask		
+			Threshold			0	0 - 255
+
+			Reverse			1	0 - 1
+	240			Map B to A (bitmask)		
+			Threshold			0	0 - 255
+
+			Reverse			1	0 - 1
+
+			Show			2	0 - 1
+	241			Picture in picture		
+			Width			0	8 - 720
+
+			Height			1	8 - 576
+
+			X offset			2	8 - 720
+
+			Y offset			3	8 - 576
+	242			Chameleon BlendTV		
+			Mode (Appear,Dissapear)			0	0 - 1
+	243			RadioActive EffecTV		
+			Mode			0	0 - 6
+
+			Zoom ratio			1	50 - 100
+
+			Strength			2	0 - 255
+
+			Difference Threshold			3	0 - 255
+	244			Iris Transition (Circle,Rect)		
+			Value			0	0 - 100
+
+			Shape			1	0 - 1
+	245			Water ripples		
+			Refresh Frequency			0	1 - 3600
+
+			Wavespeed			1	1 - 16
+
+			Decay			2	1 - 31
+
+			Mode			3	0 - 6
+
+			Threshold (motion)			4	0 - 255
+	246			Slicer		
+			A			0	2 - 100
+
+			b			1	2 - 100
+	247			Average (mixer)		
+			Recursions			0	0 - 100
+	100			Dummy Frame		
+			Color			0	0 - 7
+	101			Mirror		
+			H or V mode			0	0 - 5
+	102			Multi Mirrors		
+			H or V			0	0 - 3
+
+			Number			1	0 - 237
+	103			Width Mirror		
+			Widths			0	2 - 720
+	104			Flip Frame		
+			H or V			0	0 - 1
+	105			Posterize (Threshold Range)		
+			Posterize			0	1 - 256
+
+			Min Threshold			1	0 - 256
+
+			Max Threshold			2	0 - 256
+	106			Negation		
+			Value			0	0 - 255
+	107			Solarize		
+			Threshold			0	1 - 255
+	108			Hue and Saturation		
+			Degrees			0	0 - 360
+
+			Intensity			1	0 - 256
+	109			Gamma Correction		
+			Gamma			0	0 - 500
+	110			Soft Blur (1x3) and (3x3)		
+			Kernel size			0	0 - 1
+	111			RevTV (EffectTV)		
+			Line spacing			0	1 - 576
+
+			Vertical scale			1	1 - 720
+
+			Luminance intensity			2	0 - 255
+
+			Color range			3	0 - 7
+	112			Dices (EffectTV)		
+			Dice size			0	0 - 5
+	113			SmuckTV (EffectTV)		
+			Mode			0	0 - 14
+	114			Filter out chroma channels		
+			Mode			0	0 - 2
+	115			Various Weird Effects		
+			Mode			0	0 - 9
+	116			Matrix Dithering		
+			Mode			0	2 - 255
+
+			Value			1	0 - 1
+	117			Raw Data Manipulation		
+			Mode			0	0 - 4
+
+			Value			1	1 - 255
+	118			Raw Chroma Pixel Replacement		
+			Old Cb			0	0 - 255
+
+			Old Cr			1	0 - 255
+
+			New Cb			2	0 - 255
+
+			New Cr			3	0 - 255
+	119			Transform Cubics		
+			Cubics			0	1 - 36
+	120			Fibonacci Downscaler		
+			Mode			0	0 - 1
+
+			Fib			1	1 - 8
+	121			Bump 2D		
+			Value 1			0	1 - 256
+
+			Value 2			1	1 - 256
+
+			Mode			2	0 - 1
+	122			Rotozoom		
+			Mode			0	0 - 8
+
+			Rotate			1	0 - 255
+
+			Zoom			2	0 - 255
+
+			Automatic			3	0 - 3
+	123			Shift pixel values YCbCr		
+			Mode			0	0 - 9
+
+			Value			1	0 - 255
+	124			Overlay Scratcher		
+			Opacity			0	0 - 255
+
+			Scratch buffer			1	1 - 24
+
+			PingPong			2	0 - 1
+	125			Magic Overlay Scratcher		
+			Mode			0	0 - 9
+
+			Scratch frames			1	1 - 24
+
+			PingPong			2	0 - 1
+	126			Matte Scratcher		
+			Mode			0	0 - 25
+
+			Value			1	0 - 255
+
+			Length			2	0 - 25
+
+			Pingpong			3	0 - 1
+	127			Distortion		
+			Inc 1			0	0 - 8
+
+			Inc2			1	0 - 8
+	128			Grayscale by Color Key (RGB)		
+			Angle			0	1 - 9000
+
+			Red			1	0 - 255
+
+			Green			2	0 - 255
+
+			Blue			3	0 - 255
+	129			Black and White by Threshold		
+			Min threshold			0	0 - 255
+
+			Max threshold			1	0 - 255
+	130			Complex Invert (RGB)		
+			Angle			0	1 - 9000
+
+			Red			1	0 - 255
+
+			Green			2	0 - 255
+
+			Blue			3	0 - 255
+
+			Noise suppression			4	0 - 5500
+	131			Complex Saturation (RGB)		
+			Angle			0	1 - 9000
+
+			Red			1	0 - 255
+
+			Green			2	0 - 255
+
+			Blue			3	0 - 255
+
+			Intensity			4	1 - 36000
+
+			Degrees			5	1 - 3600
+
+			Noise suppression			6	0 - 5500
+	132			Isolate Color (RGB)		
+			Angle			0	1 - 9000
+
+			Red			1	0 - 255
+
+			Green			2	0 - 255
+
+			Blue			3	0 - 255
+
+			White			4	0 - 255
+	133			Sharpen		
+			Value			0	0 - 2048
+	134			Amplify low noise		
+			Mode			0	0 - 2
+
+			Amplification			1	1 - 5000
+	135			Contrast		
+			Mode			0	0 - 2
+
+			Intensity 1			1	0 - 255
+
+			Intensity 2			2	0 - 255
+	136			Motion blur		
+			Frames			0	0 - 1000
+	137			Sinoids		
+			Mode			0	0 - 1
+
+			Sinoids			1	0 - 1000
+	138			Average		
+			Value			0	1 - 100
+	139			Ripple		
+			Waves			0	1 - 3600
+
+			Amplitude			1	1 - 80
+
+			Attenuation			2	1 - 360
+	140			Bathroom Window		
+			H or V			0	0 - 1
+
+			Value			1	1 - 64
+	141			Slice Window		
+			Slices			0	2 - 128
+
+			Mode			1	0 - 1
+	142			Zoom		
+			Width			0	0 - 720
+
+			Height			1	0 - 576
+
+			Factor			2	10 - 100
+
+			Mode			3	0 - 1
+	143			Pencil Sketch (8)		
+			Blend Mode			0	0 - 8
+
+			Min Threshold			1	0 - 255
+
+			Max Treshold			2	0 - 255
+
+			Mask			3	0 - 1
+	144			Deinterlace (yuvkineco)		
+			Value			0	0 - 255
+	145			Pixel Raster		
+			Mode			0	0 - 1
+
+			Size			1	1 - 40
+	146			Color Enhance		
+			Intensity Y			0	0 - 255
+
+			Intensity U			1	0 - 255
+
+			Intensity V			2	0 - 255
+	147			Enhanced Magic Blend		
+			Mode			0	0 - 7
+
+			Min threshold			1	1 - 255
+
+			Max threshold			2	1 - 255
+	148			Noise Pencil		
+			Mode			0	0 - 3
+
+			Amplification			1	1 - 10000
+
+			Min Threshold			2	0 - 255
+
+			Max Threshold			3	0 - 255
+	149			RippleTV  (EffectTV)		
+			Refresh Frequency			0	1 - 3600
+
+			Wavespeed			1	1 - 16
+
+			Decay			2	1 - 32
+	150			Substract background (static, requires bg mask)		
+			Threshold			0	0 - 255
+
+			Mode			1	0 - 1
+	151			Magic Mirror Surface		
+			X			0	0 - 360
+
+			Y			1	0 - 288
+
+			X			2	0 - 100
+
+			Y			3	0 - 100
+	152			Pixel Smear		
+			Mode			0	0 - 3
+
+			Value			1	0 - 255
+	153			Grid		
+			Grid size			0	4 - 144
+	154			Fish Eye		
+			Value			0	-1000 - 1000
+	155			Swirl		
+			Degrees			0	1 - 360
+	156			Radial Blur		
+			Radius			0	0 - 90
+
+			Power			1	0 - 100
+
+			Direction			2	0 - 2
+	157			Chromium		
+			Mode			0	0 - 3
+	158			Chrominance Palette (rgb key) 		
+			Angle			0	1 - 900
+
+			Red			1	0 - 255
+
+			Green			2	0 - 255
+
+			Blue			3	0 - 255
+
+			Chroma Blue			4	0 - 255
+
+			Chroma Red			5	0 - 255
+	159			U/V Correction		
+			Angle			0	1 - 360
+
+			U Rotate Center			1	0 - 255
+
+			V Rotate Center			2	0 - 255
+
+			Intensity U			3	0 - 100
+
+			Intensity V			4	0 - 100
+
+			Minimum UV			5	0 - 255
+
+			Maximum UV			6	0 - 255
+	160			Radial cubics		
+			Radius			0	2 - 72
+
+			Value			1	1 - 90
+	161			Cartoon		
+			Damp Y			0	1 - 255
+
+			Damp U			1	0 - 255
+
+			Damp V			2	0 - 255
+	162			Nervous		
+			Buffer length			0	0 - 25
+	163			Morphology (experimental)		
+			Threshold			0	0 - 255
+
+			Operator			1	0 - 8
+
+			Repeat			2	0 - 1
+	164			Video Blobs		
+			Radius			0	1 - 360
+
+			Blobs			1	1 - 100
+
+			Speed			2	1 - 100
+
+			Shape			3	0 - 1
+	165			Video Boids		
+			Radius			0	1 - 360
+
+			Blobs			1	2 - 256
+
+			Shape			2	0 - 1
+
+			Cohesion			3	0 - 100
+
+			Seperation			4	0 - 100
+
+			Alignment			5	0 - 100
+
+			Speed			6	1 - 100
+
+			Home Radius			7	1 - 360
+	166			Motion Ghost		
+			Opacity			0	16 - 255
+	167			ZArtistic Filter (Oilpainting, acc. add )		
+			Brush size			0	2 - 16
+
+			Smoothness			1	1 - 255
+
+			Mode (Luma/Chroma)			2	0 - 1
+	168			ZArtistic Filter (Oilpaint, acc. avg)		
+			Brush size			0	2 - 16
+
+			Smoothness			1	1 - 255
+
+			Mode (Luma/Chroma)			2	0 - 1
+	169			ZArtistic Filter (Horizontal strokes)		
+			Line size			0	2 - 32
+
+			Smoothness			1	1 - 255
+
+			Mode (Luma/Chroma)			2	0 - 1
+	170			ZArtistic Filter (Round Brush)		
+			Radius			0	2 - 32
+
+			Distance from center			1	1 - 200
+
+			Smoothness			2	1 - 255
+
+			Mode (Luma/Chroma)			3	0 - 1
+	171			ZArtistic Filter (Vertical strokes)		
+			Stroke size			0	2 - 32
+
+			Smoothness			1	1 - 255
+
+			Mode (Luma/Chroma)			2	0 - 1
+	172			vvCutStop		
+			Threshold			0	0 - 255
+
+			Frame freq			1	0 - 255
+
+			Cut mode			2	0 - 1
+
+			Hold front/back			3	0 - 1
+	173			vvMaskStop		
+			Negate Mask			0	0 - 1
+
+			Swap Mask/Frame			1	0 - 1
+
+			Hold Frame Frequency			2	0 - 255
+
+			Hold Mask Frequency			3	0 - 255
+	174			Photoplay (timestretched mosaic)		
+			Photos			0	2 - 10
+
+			Waterfall			1	1 - 250
+
+			Mode			2	0 - 3
+	175			Flare (Glow)		
+			Mode			0	0 - 5
+
+			Opacity			1	0 - 255
+
+			Radius			2	0 - 100
+	176			Constant Luminance Blend		
+			Mode			0	0 - 31
+
+			Threshold			1	0 - 500
+
+			Constant			2	16 - 235
+	177			Color mapping		
+			Red			0	0 - 255
+
+			Green			1	0 - 255
+
+			Blue			2	0 - 255
+	178			Negate a channel		
+			Y=0, Cb=1, Cr=2			0	0 - 2
+
+			Value			1	0 - 255
+	179			Colored Morphology		
+			Threshold			0	0 - 255
+
+			Operator mode			1	0 - 8
+
+			Repeat			2	0 - 1
+	180			Color Flash		
+			Frametime			0	0 - 50
+
+			Red			1	0 - 255
+
+			Green			2	0 - 255
+
+			Blue			3	0 - 255
+
+			Delay			4	1 - 10
+	181			RGB Channel		
+			Red			0	0 - 1
+
+			Green			1	0 - 1
+
+			Blue			2	0 - 1
+	182			Automatic Histogram Equalizer		
+			Channel (Y,U,V,All)			0	0 - 1
+
+			Intensity			1	0 - 255
+
+			Strength			2	0 - 255
+	183			Color Histogram		
+			Mode (R,G,B,All)			0	0 - 3
+
+			Draw			1	0 - 1
+
+			Intensity			2	0 - 255
+
+			Strength			3	0 - 255
+	184			Motion Mapping		
+			Threshold			0	0 - 255
+
+			Reverse			1	50 - 10000
+
+			Draw			2	0 - 1
+
+			History			3	2 - 200
+
+			Capture length			4	0 - 255
+	185			TimeDistortionTV (EffectTV)		
+			Mode			0	5 - 100
+	186			ChameleonTV (EffectTV)		
+			Appearing/Dissapearing			0	0 - 1
+	187			BaltanTV (EffecTV)		
+			Stride			0	2 - 16
+
+			Mode			1	0 - 1
+	188			Contour extraction		
+			Threshold			0	0 - 255
+
+			Mode			1	0 - 1
+
+			Show image/contour			2	0 - 2
+
+			Thinning			3	1 - 100
+
+			Min weight			4	1 - 5000
+	189			Lens correction		
+			Alpha X			0	1 - 1000
+
+			Alpha Y			1	1 - 1000
+
+			Direction			2	0 - 1
+	190			Image calibration		
+			Mode			0	0 - 3
+
+			Subtract Dark Current Only			1	0 - 1
+	500			LVD Color tone		
+			Number			0	0 - 255
+
+			Number			1	0 - 255
+
+			Number			2	0 - 255
+	501			LVD Displaywall (EffecTV)		
+			Number			0	2 - 10
+
+			Number			1	0 - 3
+
+			Number			2	-1 - 1
+	502			LVD Shared Memory Reader Veejay		
+	503			LVD Shared Memory Writer		
+	504			LVD Solid Color Fill		
+			Number			0	0 - 255
+
+			Number			1	0 - 255
+
+			Number			2	0 - 255
+	505			LVD Stroboscope		
+			Number			0	0 - 1000
+
+			Number			1	0 - 3
+
+			Number			2	0 - 255
+	506			LVD Color tone		
+			Number			0	0 - 255
+
+			Number			1	0 - 255
+
+			Number			2	0 - 255
+	507			LVD Displaywall (EffecTV)		
+			Number			0	2 - 10
+
+			Number			1	0 - 3
+
+			Number			2	-1 - 1
+	508			LVD Stroboscope		
+			Number			0	0 - 10000
+
+			Number			1	0 - 3
+
+			Number			2	0 - 255
+	509			frei0r 3dflippo		
+			X axis rotation			0	0 - 100
+
+			Y axis rotation			1	0 - 100
+
+			Z axis rotation			2	0 - 100
+
+			X axis rotation rate			3	0 - 100
+
+			Y axis rotation rate			4	0 - 100
+
+			Z axis rotation rate			5	0 - 100
+
+			Center position (X)			6	0 - 100
+	510			frei0r B		
+	511			frei0r G		
+	512			frei0r IIR blur		
+			Amount			0	0 - 100
+
+			Type			1	0 - 100
+
+			Edge			2	0 - 1
+	513			frei0r R		
+	514			frei0r addition		
+	515			frei0r addition_alpha		
+	516			frei0r alpha0ps		
+			Display			0	0 - 100
+
+			Display input alpha			1	0 - 1
+
+			Operation			2	0 - 100
+
+			Threshold			3	0 - 100
+
+			Shrink/Grow/Blur amount			4	0 - 100
+
+			Invert			5	0 - 1
+	517			frei0r alphaatop		
+	518			frei0r alphagrad		
+			Position			0	0 - 100
+
+			Transition width			1	0 - 100
+
+			Tilt			2	0 - 100
+
+			Min			3	0 - 100
+
+			Max			4	0 - 100
+
+			Operation			5	0 - 100
+	519			frei0r alphain		
+	520			frei0r Alpha Injection		
+	521			frei0r alphaout		
+	522			frei0r alphaover		
+	523			frei0r alphaspot		
+			Shape			0	0 - 100
+
+			Position X			1	0 - 100
+
+			Position Y			2	0 - 100
+
+			Size X			3	0 - 100
+
+			Size Y			4	0 - 100
+
+			Tilt			5	0 - 100
+
+			Transition width			6	0 - 100
+	524			frei0r alphaxor		
+	525			frei0r White Balance		
+			Neutral Color (Red)			0	0 - 255
+
+			Neutral Color (Green)			1	0 - 255
+
+			Neutral Color (Blue)			2	0 - 255
+
+			Green Tint			3	0 - 100
+	526			frei0r Baltan		
+	527			frei0r blend		
+			blend			0	0 - 100
+	528			frei0r bluescreen0r		
+			Color (Red)			0	0 - 255
+
+			Color (Green)			1	0 - 255
+
+			Color (Blue)			2	0 - 255
+
+			Distance			3	0 - 100
+	529			frei0r Brightness		
+			Brightness			0	0 - 100
+	530			frei0r burn		
+	531			frei0r bw0r		
+	532			frei0r c0rners		
+			Corner 1 X			0	0 - 100
+
+			Corner 1 Y			1	0 - 100
+
+			Corner 2 X			2	0 - 100
+
+			Corner 2 Y			3	0 - 100
+
+			Corner 3 X			4	0 - 100
+
+			Corner 3 Y			5	0 - 100
+
+			Corner 4 X			6	0 - 100
+	533			frei0r cairoaffineblend		
+			x			0	0 - 100
+
+			y			1	0 - 100
+
+			x scale			2	0 - 100
+
+			y scale			3	0 - 100
+
+			rotation			4	0 - 100
+
+			opacity			5	0 - 100
+
+			anchor x			6	0 - 100
+	534			frei0r cairoblend		
+			opacity			0	0 - 100
+	535			frei0r cairogradient		
+			start color (Red)			0	0 - 255
+
+			start color (Green)			1	0 - 255
+
+			start color (Blue)			2	0 - 255
+
+			start opacity			3	0 - 100
+
+			end color (Red)			4	0 - 255
+
+			end color (Green)			5	0 - 255
+
+			end color (Blue)			6	0 - 255
+	536			frei0r cairoimagegrid		
+			rows			0	0 - 100
+
+			columns			1	0 - 100
+	537			frei0r Cartoon		
+			triplevel			0	0 - 100
+
+			diffspace			1	0 - 100
+	538			frei0r K-Means Clustering		
+			Num			0	0 - 100
+
+			Dist weight			1	0 - 100
+	539			frei0r White Balance (LMS space)		
+			Neutral Color (Red)			0	0 - 255
+
+			Neutral Color (Green)			1	0 - 255
+
+			Neutral Color (Blue)			2	0 - 255
+
+			Color Temperature			3	0 - 100
+	540			frei0r color_only		
+	541			frei0r coloradj_RGB		
+			R			0	0 - 100
+
+			G			1	0 - 100
+
+			B			2	0 - 100
+
+			Action			3	0 - 100
+
+			Keep luma			4	0 - 1
+
+			Alpha controlled			5	0 - 1
+
+			Luma formula			6	0 - 100
+	542			frei0r Color Distance		
+			Color (Red)			0	0 - 255
+
+			Color (Green)			1	0 - 255
+
+			Color (Blue)			2	0 - 255
+	543			frei0r colorhalftone		
+			dot radius			0	0 - 100
+
+			cyan angle			1	0 - 100
+
+			magenta angle			2	0 - 100
+
+			yellow angle			3	0 - 100
+	544			frei0r colorize		
+			hue			0	0 - 100
+
+			saturation			1	0 - 100
+
+			lightness			2	0 - 100
+	545			frei0r colortap		
+	546			frei0r Composition		
+	547			frei0r Contrast0r		
+			Contrast			0	0 - 100
+	548			frei0r Curves		
+			Channel			0	0 - 100
+
+			Show curves			1	0 - 1
+
+			Graph position			2	0 - 100
+
+			Curve point number			3	0 - 100
+
+			Luma formula			4	0 - 1
+
+			Point 1 input value			5	0 - 100
+
+			Point 1 output value			6	0 - 100
+	549			frei0r Nikon D90 Stairstepping fix		
+	550			frei0r darken		
+	551			frei0r Defish0r		
+			Amount			0	0 - 100
+
+			DeFish			1	0 - 1
+
+			Type			2	0 - 100
+
+			Scaling			3	0 - 100
+
+			Manual Scale			4	0 - 100
+
+			Interpolator			5	0 - 100
+
+			Aspect type			6	0 - 100
+	552			frei0r delay0r		
+			DelayTime			0	0 - 100
+	553			frei0r Delaygrab		
+	554			frei0r difference		
+	555			frei0r Distort0r		
+			Amplitude			0	0 - 100
+
+			Frequency			1	0 - 100
+	556			frei0r dither		
+			levels			0	0 - 100
+
+			matrixid			1	0 - 100
+	557			frei0r divide		
+	558			frei0r dodge		
+	559			frei0r Edgeglow		
+			lthresh			0	0 - 100
+
+			lupscale			1	0 - 100
+
+			lredscale			2	0 - 100
+	560			frei0r emboss		
+			azimuth			0	0 - 100
+
+			elevation			1	0 - 100
+
+			width45			2	0 - 100
+	561			frei0r Equaliz0r		
+	562			frei0r FaceBl0r		
+			Ellipse			0	0 - 100
+
+			Recheck			1	0 - 100
+
+			Threads			2	0 - 100
+
+			Search scale			3	0 - 100
+
+			Neighbors			4	0 - 100
+
+			Smallest			5	0 - 100
+
+			Largest			6	0 - 100
+	563			frei0r opencvfacedetect		
+			Threads			0	0 - 100
+
+			Shape			1	0 - 100
+
+			Recheck			2	0 - 100
+
+			Search scale			3	0 - 100
+
+			Neighbors			4	0 - 100
+
+			Smallest			5	0 - 100
+
+			Scale			6	0 - 100
+	564			frei0r Flippo		
+			X axis			0	0 - 1
+
+			Y axis			1	0 - 1
+	565			frei0r Gamma		
+			Gamma			0	0 - 100
+	566			frei0r Glow		
+			Blur			0	0 - 100
+	567			frei0r grain_extract		
+	568			frei0r grain_merge		
+	569			frei0r hardlight		
+	570			frei0r hqdn3d		
+			Spatial			0	0 - 100
+
+			Temporal			1	0 - 100
+	571			frei0r hue		
+	572			frei0r Hueshift0r		
+			Hue			0	0 - 100
+	573			frei0r Invert0r		
+	574			frei0r Ising0r		
+			Temperature			0	0 - 100
+
+			Border Growth			1	0 - 100
+
+			Spontaneous Growth			2	0 - 100
+	575			frei0r keyspillm0pup		
+			Key color (Red)			0	0 - 255
+
+			Key color (Green)			1	0 - 255
+
+			Key color (Blue)			2	0 - 255
+
+			Target color (Red)			3	0 - 255
+
+			Target color (Green)			4	0 - 255
+
+			Target color (Blue)			5	0 - 255
+
+			Tolerance			6	0 - 100
+	576			frei0r Lens Correction		
+			X center			0	0 - 100
+
+			Y center			1	0 - 100
+
+			Correction near center			2	0 - 100
+
+			Correction near edges			3	0 - 100
+
+			Brightness			4	0 - 100
+	577			frei0r LetterB0xed		
+			Border Width			0	0 - 100
+
+			Transparency			1	0 - 1
+	578			frei0r Levels		
+			Channel			0	0 - 100
+
+			Input black level			1	0 - 100
+
+			Input white level			2	0 - 100
+
+			Gamma			3	0 - 100
+
+			Black output			4	0 - 100
+
+			White output			5	0 - 100
+
+			Show histogram			6	0 - 1
+	579			frei0r lighten		
+	580			frei0r Light Graffiti		
+			sensitivity			0	0 - 100
+
+			backgroundWeight			1	0 - 100
+
+			thresholdBrightness			2	0 - 100
+
+			thresholdDifference			3	0 - 100
+
+			thresholdDiffSum			4	0 - 100
+
+			dim			5	0 - 100
+
+			saturation			6	0 - 100
+	581			frei0r Lissajous0r		
+			ratiox			0	0 - 100
+
+			ratioy			1	0 - 100
+	582			frei0r Luminance		
+	583			frei0r Mask0Mate		
+			Left			0	0 - 100
+
+			Right			1	0 - 100
+
+			Top			2	0 - 100
+
+			Bottom			3	0 - 100
+
+			Invert			4	0 - 1
+
+			Blur			5	0 - 100
+	584			frei0r Medians		
+			Size			0	0 - 100
+	585			frei0r multiply		
+	586			frei0r NDVI filter		
+			Levels			0	0 - 100
+
+			VIS Scale			1	0 - 100
+
+			VIS Offset			2	0 - 100
+
+			NIR Scale			3	0 - 100
+
+			NIR Offset			4	0 - 100
+	587			frei0r Nervous		
+	588			frei0r Nois0r		
+	589			frei0r nosync0r		
+			HSync			0	0 - 100
+	590			frei0r onecol0r		
+			Color (Red)			0	0 - 255
+
+			Color (Green)			1	0 - 255
+
+			Color (Blue)			2	0 - 255
+	591			frei0r overlay		
+	592			frei0r Partik0l		
+			up			0	0 - 100
+
+			down			1	0 - 100
+	593			frei0r Perspective		
+			Top Left (X)			0	0 - 0
+
+			Top Left (Y)			1	0 - 100
+
+			Top Right (X)			2	0 - 100
+
+			Top Right (Y)			3	0 - 100
+
+			Bottom Left (X)			4	0 - 100
+	594			frei0r pixeliz0r		
+			Block width			0	0 - 100
+
+			Block height			1	0 - 100
+	595			frei0r Plasma		
+			1_speed			0	0 - 100
+
+			2_speed			1	0 - 100
+
+			3_speed			2	0 - 100
+
+			4_speed			3	0 - 100
+
+			1_move			4	0 - 100
+
+			2_move			5	0 - 100
+	596			frei0r posterize		
+			levels			0	0 - 100
+	597			frei0r pr0be		
+			Measurement			0	0 - 100
+
+			X			1	0 - 100
+
+			Y			2	0 - 100
+
+			X size			3	0 - 100
+
+			Y size			4	0 - 100
+
+			256 scale			5	0 - 1
+
+			Show alpha			6	0 - 1
+	598			frei0r pr0file		
+			X			0	0 - 100
+
+			Y			1	0 - 100
+
+			Tilt			2	0 - 100
+
+			Length			3	0 - 100
+
+			Channel			4	0 - 100
+
+			Marker 1			5	0 - 100
+
+			Marker 2			6	0 - 100
+	599			frei0r primaries		
+			Factor			0	0 - 100
+	600			frei0r rgbnoise		
+			noise			0	0 - 100
+	601			frei0r RGB-Parade		
+			mix			0	0 - 100
+
+			overlay sides			1	0 - 1
+	602			frei0r Saturat0r		
+			Saturation			0	0 - 100
+	603			frei0r saturation		
+	604			frei0r screen		
+	605			frei0r select0r		
+			Color to select (Red)			0	0 - 255
+
+			Color to select (Green)			1	0 - 255
+
+			Color to select (Blue)			2	0 - 255
+
+			Invert selection			3	0 - 1
+
+			Delta R / A / Hue			4	0 - 100
+
+			Delta G / B / Chroma			5	0 - 100
+
+			Delta B / I / I			6	0 - 100
+	606			frei0r Sharpness		
+			Amount			0	0 - 100
+
+			Size			1	0 - 100
+	607			frei0r sigmoidaltransfer		
+			brightness			0	0 - 100
+
+			sharpness			1	0 - 100
+	608			frei0r Sobel		
+	609			frei0r softglow		
+			blur			0	0 - 100
+
+			brightness			1	0 - 100
+
+			sharpness			2	0 - 100
+
+			blurblend			3	0 - 100
+	610			frei0r softlight		
+	611			frei0r SOP/Sat		
+			rSlope			0	0 - 100
+
+			gSlope			1	0 - 100
+
+			bSlope			2	0 - 100
+
+			aSlope			3	0 - 100
+
+			rOffset			4	0 - 100
+
+			gOffset			5	0 - 100
+
+			bOffset			6	0 - 100
+	612			frei0r spillsupress		
+			supresstype			0	0 - 100
+	613			frei0r Squareblur		
+			Kernel size			0	0 - 100
+	614			frei0r subtract		
+	615			frei0r TehRoxx0r		
+			Interval			0	0 - 100
+	616			frei0r test_pat_B		
+			Type			0	0 - 100
+
+			Aspect type			1	0 - 100
+
+			Manual Aspect			2	0 - 100
+	617			frei0r test_pat_C		
+			Color space			0	0 - 100
+
+			Cross section			1	0 - 100
+
+			Third axis value			2	0 - 100
+
+			Fullscreen			3	0 - 1
+	618			frei0r test_pat_G		
+			Type			0	0 - 100
+
+			Size 1			1	0 - 100
+
+			Size 2			2	0 - 100
+
+			Negative			3	0 - 1
+
+			Aspect type			4	0 - 100
+
+			Manual Aspect			5	0 - 100
+	619			frei0r test_pat_I		
+			Type			0	0 - 100
+
+			Channel			1	0 - 100
+
+			Amplitude			2	0 - 100
+
+			Width			3	0 - 100
+
+			Tilt			4	0 - 100
+
+			Negative			5	0 - 1
+	620			frei0r test_pat_L		
+			Type			0	0 - 100
+
+			Channel			1	0 - 100
+	621			frei0r test_pat_R		
+			Type			0	0 - 100
+
+			Channel			1	0 - 100
+
+			Amplitude			2	0 - 100
+
+			Lin P swp			3	0 - 1
+
+			Freq 1			4	0 - 100
+
+			Freq 2			5	0 - 100
+
+			Aspect type			6	0 - 100
+	622			frei0r 3 point color balance		
+			Black color (Red)			0	0 - 255
+
+			Black color (Green)			1	0 - 255
+
+			Black color (Blue)			2	0 - 255
+
+			Gray color (Red)			3	0 - 255
+
+			Gray color (Green)			4	0 - 255
+
+			Gray color (Blue)			5	0 - 255
+
+			Split preview			6	0 - 1
+	623			frei0r threelay0r		
+	624			frei0r Threshold0r		
+			Threshold			0	0 - 100
+	625			frei0r Timeout indicator		
+			time			0	0 - 100
+
+			color (Red)			1	0 - 255
+
+			color (Green)			2	0 - 255
+
+			color (Blue)			3	0 - 255
+
+			transparency			4	0 - 100
+	626			frei0r Tint0r		
+			Map black to (Red)			0	0 - 255
+
+			Map black to (Green)			1	0 - 255
+
+			Map black to (Blue)			2	0 - 255
+
+			Map white to (Red)			3	0 - 255
+
+			Map white to (Green)			4	0 - 255
+
+			Map white to (Blue)			5	0 - 255
+
+			Tint amount			6	0 - 100
+	627			frei0r Transparency		
+			Transparency			0	0 - 100
+	628			frei0r Twolay0r		
+	629			frei0r UV Map		
+	630			frei0r value		
+	631			frei0r Vectorscope		
+			mix			0	0 - 100
+
+			overlay sides			1	0 - 1
+	632			frei0r Vertigo		
+			PhaseIncrement			0	0 - 100
+
+			Zoomrate			1	0 - 100
+	633			frei0r Vignette		
+			aspect			0	0 - 100
+
+			clearCenter			1	0 - 100
+
+			soft			2	0 - 100
+	634			frei0r xfade0r		
+			fader			0	0 - 100
+Environment variables:
+	SDL_VIDEO_HWACCEL		Set to 1 to use SDL video hardware accel (default=on)
+	VEEJAY_PERFORMANCE		Set to "quality" or "fastest" (default is fastest)
+	VEEJAY_AUTO_SCALE_PIXELS	Set to 1 to convert between CCIR 601 and JPEG automatically (default=dont care)
+	VEEJAY_INTERPOLATE_CHROMA	Set to 1 if you wish to interpolate every chroma sample when scaling (default=0)
+	VEEJAY_CAPTURE_DRIVER		Set to "unicap" or "v4lutils" (default=v4lutils)
+	VEEJAY_SDL_KEY_REPEAT_INTERVAL	interval of key pressed to repeat while pressed down.
+	VEEJAY_PLAYBACK_CACHE		Sample cache size in MB - by default, veejay takes 30 percent of total RAM
+	VEEJAY_SDL_KEY_REPEAT_DELAY	Delay key repeat in ms
+	VEEJAY_FULLSCREEN		Start in fullscreen (1) or windowed (0) mode
+	VEEJAY_SCREEN_GEOMETRY		Specifiy a geometry for veejay to position the video window.
+	VEEJAY_SCREEN_SIZE		Size of video window, defaults to full screen size.
+	VEEJAY_RUN_MODE			Run in "classic" (352x288 Dummy) or default (720x576). 
+
+
+	Example for bash:
+			$ export VEEJAY_AUTO_SCALE_PIXEL=1

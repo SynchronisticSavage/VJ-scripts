@@ -19,7 +19,7 @@ class Pipeline(object):
 
 
         self.caps_filter = gst.element_factory_make("capsfilter", "caps_filter")
-        caps = gst.Caps("video/x-raw-yuv,width=640,height=480,framerate=24/1")
+        caps = gst.Caps("video/x-raw-yuv,width=640,height=480")
         self.caps_filter.set_property("caps", caps)
         self.pipeline.add(self.caps_filter)
 
@@ -33,8 +33,8 @@ class Pipeline(object):
 	self.ffmc2 = gst.element_factory_make("ffmpegcolorspace", "ffmc2")
 	self.pipeline.add(self.ffmc2)
 
-        self.sink = gst.element_factory_make("xvimagesink", "sink")
-	#self.sink.set_property("device", "/dev/video6")
+        self.sink = gst.element_factory_make("v4l2sink", "sink")
+	self.sink.set_property("device", "/dev/video6")
         self.pipeline.add(self.sink)
   
         self.webcam.link(self.caps_filter)
@@ -52,6 +52,25 @@ class Pipeline(object):
 	print "third sleep"
 	time.sleep(3)
         self.pipeline.set_state(gst.STATE_PLAYING)
+	time.sleep(3)
+	print "second sleep"
+	self.pipeline.set_state(gst.STATE_STOPPED)
+	print "third sleep"
+	time.sleep(3)
+        self.pipeline.set_state(gst.STATE_PLAYING)
+	time.sleep(3)
+	print "second sleep"
+	self.pipeline.set_state(gst.STATE_PAUSED)
+	print "third sleep"
+	time.sleep(3)
+        self.pipeline.set_state(gst.STATE_PLAYING)
+	time.sleep(3)
+	print "second sleep"
+	self.pipeline.set_state(gst.STATE_PAUSED)
+	print "third sleep"
+	time.sleep(3)
+        self.pipeline.set_state(gst.STATE_PLAYING)
+
   
 start = Pipeline()
 

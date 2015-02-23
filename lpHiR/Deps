@@ -1,6 +1,16 @@
 #!/bin/bash
 #dependencies for Light Paint HiR on Open Artist (may work for other ubuntu distros)
 
+#make lpHiR shortcut
+
+sudo echo "#!/bin/bash
+#script to start light paint HiR
+
+cd $PWD/veeeeJAYorigLENOextDae2_640x480.sh
+" > /usr/bin/lpHiR
+
+
+
 #set pkg config path
 export PKG_CONFIG_PATH=/usr/lib/x86_64-linux-gnu/pkgconfig:/usr/local/lib/pkgconfig
 export SDL_TTF_LIBS=-lSDL_ttf
@@ -13,6 +23,28 @@ sudo apt-get install autoconf libtool libopencv-dev libgavl-dev libmjpegtools-de
 #setup jack and pulse to autostart
 sudo chmod +x /etc/X11/Xsession.d/99cadence-session-start
 sudo chmod +x /etc/X11/Xsession.d/70cadence-plugin-paths
+#create autostart files for jack
+sudo echo "[Desktop Entry]
+Type=Application
+Exec=/etc/X11/Xsession.d/99cadence-session-start
+Hidden=false
+NoDisplay=false
+X-GNOME-Autostart-enabled=true
+Name[en_US]=Cadence Start Jack and Pulse
+Name=Cadence Start Jack and Pulse
+Comment[en_US]=Boom and there is sound
+Comment=Boom and there is sound!" > ~/.config/autostart/99cadence-session-start.desktop
+
+sudo echo "[Desktop Entry]
+Type=Application
+Exec=cadence
+Hidden=false
+NoDisplay=false
+X-GNOME-Autostart-enabled=true
+Name[en_US]=start Cadence Gui
+Name=start Cadence Gui
+Comment[en_US]=boomshukaluck
+Comment=boomshukaluck!" > ~/.config/autostart/cadence.desktop
 
 #mk src dir for some deps
 mkdir -p ~/src/git
@@ -34,6 +66,9 @@ make && sudo make install
 cd examples
 make
 sudo cp yuv4mpeg_to_v4l2 /usr/bin
+#set v4l2loopback to autoload
+sudo echo "v4l2loopback devices=8" >> /etc/modules
+#TODO: set v4l2loopback device max to something like 50, can be set in v4l2loopback.c
 
 #get and install py-jack
 mkdir -p ~/src/python
@@ -82,5 +117,20 @@ sudo make uninstall && make clean && ./autogen.sh && ./configure  --prefix=/usr 
 
 #copy scripts to /usr/bin and the Desktop to start lpHiR
 
-sudo cp ~/HiR/lpHiR3015-osc/scripts/lpHiR /usr/bin/lpHiR
-sudo cp ~/HiR/lpHiR3015-osc/scripts/*.desktop ~/Desktop/
+
+sudo echo "#!/usr/bin/env xdg-open
+
+[Desktop Entry]
+Version=1.0
+Type=Application
+Terminal=false
+Icon[en_US]=gnome-panel-launcher
+Name[en_US]=Light Paint HiR
+Exec=gnome-terminal -e lpHiR
+Comment[en_US]=full blown Multi-Media Production Tool
+Name=Light Paint HiR
+Comment=full blown Multi-Media Production Tool
+Icon=gnome-panel-launcher" > ~/Desktop/LightPaintHiR.desktop
+
+#sudo cp ~/HiR/lpHiR3015-osc/scripts/lpHiR /usr/bin/lpHiR
+#sudo cp ~/HiR/lpHiR3015-osc/scripts/*.desktop ~/Desktop/
