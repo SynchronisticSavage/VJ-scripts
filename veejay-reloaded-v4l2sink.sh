@@ -2,18 +2,18 @@
 #script to launch veejay and reloaded
 
 #set resolution and framerate
-WIDTH=640
-HEIGHT=480
+WIDTH=1280
+HEIGHT=720
 FPS=30
 
 #set audio rate
 ARATE=48000
 #ARATE=44100
 #set veejay output v4l2loopback device
-ODEV=/dev/video5
+ODEV=5
 
 #load v4l2loopback kernel module (comment out if you set it to autoload)
-sudo modprobe v4l2loopback devices=8
+#sudo modprobe v4l2loopback devices=8
 #make first in first out tmp file
 mkfifo /tmp/pipe	
 
@@ -21,8 +21,11 @@ mkfifo /tmp/pipe
 #gst-launch v4l2src device=/dev/video1 ! v4l2sink device=/dev/video2 &
 
 #pipe /tmp/pipe to output Veejay to ODEV
-yuv4mpeg_to_v4l2 $ODEV < /tmp/pipe &
-#start VeeJay Server with options to output 640x480 to /dev/video3 via /tmp/pipe
+yuv4mpeg_to_v4l2 /dev/video$ODEV < /tmp/pipe &
+
+echo "starting veejay with a resolution of $WIDTH x $HEIGHT at $FPS frames per second"
+echo "setting audiorate to: $ARATE"
+
 veejay -v --audiorate $ARATE --fps $FPS --output 4 --output-file /tmp/pipe -w $WIDTH -h $HEIGHT -W $WIDTH -H $HEIGHT -N 1 &
 
 #start reloaded VJ Client
