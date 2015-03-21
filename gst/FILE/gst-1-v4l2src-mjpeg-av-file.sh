@@ -1,6 +1,6 @@
 #!/bin/bash
 
-#Script to capture desktop to avi file playable in Veejay
+#Script to capture desktop to mjpeg AVI file good for loading in veejay
 
 #set Encoder
 
@@ -9,11 +9,11 @@ ENC=jpegenc
 
 #set output path and file
 VPATH=~/Videos/capture
-OFILE=gst-v4l2src-jack-mjpg.avi
+OFILE=gst-v4l2src-jack-mjpg-gst1.avi
 TIME=$(date "+%Y.%m.%d-%H.%M.%S")
 
 #set v4l2src and resolution
-VDEV=/dev/video7
+VDEV=/dev/video5
 OWIDTH=1280
 OHEIGHT=720
 #show cursor?
