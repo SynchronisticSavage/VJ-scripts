@@ -98,7 +98,7 @@ class AVDemo(Demo):
         scale = gst.element_factory_make("videoscale", "scale")
         cspace = gst.element_factory_make("ffmpegcolorspace", "cspace")
 
-        audiosink = gst.element_factory_make("autoaudiosink")
+        audiosink = gst.element_factory_make("jackaudiosink")
         audioconvert = gst.element_factory_make("audioconvert")
 
         # pipeline looks like: ... ! cspace ! scale ! sink

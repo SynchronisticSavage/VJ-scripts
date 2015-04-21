@@ -2,21 +2,21 @@
 
 #Script to convert video files to mjpeg scaled framerate adjusted good for use in veejay
 #set input path
-FILES=/home/hero/Videos/capture/*.mkv
+FILES=/home/hero/HiR/lpHiR/1280x720/*.mkv
 #set output Dir and make if it does not exsist
-VPATH=~/Videos/web/mkv
+VPATH=~/Videos/web/2015-04-20
 mkdir -p $VPATH &&
 
 for f in $FILES
 do
 Z="$f"
-echo " zed yo $Z"
+#echo " zed yo $Z"
 
 #set output path and file
 SFILE=$(/usr/bin/basename "$f")
-echo "sfile yo: $SFILE"
+#echo "sfile yo: $SFILE"
 NOEXT=${SFILE%.*}
-echo "NoeXt YO!!: $NOEXT"
+#echo "NoeXt YO!!: $NOEXT"
 
 OFILE=\"$VPATH/$NOEXT-mkv.avi\"
 

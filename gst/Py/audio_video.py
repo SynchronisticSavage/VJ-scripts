@@ -94,12 +94,12 @@ class AVDemo(Demo):
         #videosink.set_property("force-aspect-ratio", True)
         #videosink.set_property("handle-expose", True)
         videosink = gst.element_factory_make("v4l2sink", "sink")
-        videosink.set_property("device", "/dev/video4")
+        videosink.set_property("device", "/dev/video6")
         #videosink.set_property("handle-expose", True)
         scale = gst.element_factory_make("videoscale", "scale")
         cspace = gst.element_factory_make("ffmpegcolorspace", "cspace")
 
-        audiosink = gst.element_factory_make("autoaudiosink")
+        audiosink = gst.element_factory_make("jackaudiosink")
         audioconvert = gst.element_factory_make("audioconvert")
 
         # pipeline looks like: ... ! cspace ! scale ! sink

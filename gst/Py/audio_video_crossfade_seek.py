@@ -69,7 +69,8 @@ class AVCrossfade(AVDemo):
         setattr(self, "vol%s" % name, volume)
 
     def addSourceChain(self, pipeline, name, filename, mixer, adder):
-        src = gst.element_factory_make("souphttpsrc")
+        #src = gst.element_factory_make("souphttpsrc")
+	src = gst.element_factory_make("filesrc")
         src.props.location = filename
         #dcd = create_decodebin()
 	dcd = gst.element_factory_make("decodebin2")

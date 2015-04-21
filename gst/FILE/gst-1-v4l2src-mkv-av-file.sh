@@ -20,14 +20,14 @@ TIME=$(date "+%Y.%m.%d-%H.%M.%S")
 
 
 #set Output Width/Height
-WIDTH=1280
-HEIGHT=720
-
+WIDTH=320
+HEIGHT=240
+FPS=125
 #set your Audio Source
 ASRC=jackaudiosrc
 #ASRC=pulsesrc
 
-gst-launch-1.0 -e -v $MUX name=mux ! filesink location=$VPATH/$TIME.$OFILE v4l2src device=$VDEVIN ! jpegenc ! image/jpeg,width=1280,height=720,framerate=30/1 ! mux.video_0 jackaudiosrc ! audioconvert ! queue ! audio/x-raw,format=S16LE ! mux.audio_0
+gst-launch-1.0 -e -v $MUX name=mux ! filesink location=$VPATH/$TIME.$OFILE v4l2src device=$VDEVIN ! jpegenc ! image/jpeg,width=$WIDTH,height=$HEIGHT,framerate=$FPS/1 ! mux.video_0 jackaudiosrc ! audioconvert ! queue ! audio/x-raw,format=S16LE ! mux.audio_0
 
 #TODO Tee to V4l2loopback
 

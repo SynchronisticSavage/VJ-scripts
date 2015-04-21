@@ -6,7 +6,7 @@ if [[ -n "$1" ]]; then
 FILES=$1
 echo "obtaining files from $FILES"
 else
-FILES=~/Videos/cc/*
+FILES=~/Videos/capture/tmp/*.mkv
 echo "input file path set to $FILES"
 fi
 
@@ -16,7 +16,7 @@ then
 VPATH=$2
 echo "placing output files neatly in $VPATH"
 else
-VPATH=~/Videos/lpHiR/1280x720/cc
+VPATH=~/HiR/lpHiR/320x240/converted
 echo "smoothly dropping output files in $VPATH"
 fi
 
@@ -38,9 +38,9 @@ OFILE=\"$VPATH/$NOEXT-veejay.avi\"
 ENC=jpegenc
 
 #set Output Width/Height and framerate and audiorate
-WIDTH=1280
-HEIGHT=720
-FPS=30
+WIDTH=320
+HEIGHT=240
+FPS=125
 FRAMERATE=$FPS/1
 RATE=48000
 echo "using $ENC to encode $NOEXT with a resolution of $WIDTH x $HEIGHT at $FPS frames per second"

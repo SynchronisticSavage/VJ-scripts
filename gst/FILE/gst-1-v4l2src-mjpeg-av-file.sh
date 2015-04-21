@@ -14,15 +14,15 @@ TIME=$(date "+%Y.%m.%d-%H.%M.%S")
 
 #set v4l2src and resolution
 VDEV=/dev/video5
-OWIDTH=1280
-OHEIGHT=720
+OWIDTH=320
+OHEIGHT=240
 #show cursor?
 POINTER=false
 #use damaged?
 DAM=0
 #set Output Width/Height (scale)
-WIDTH=1280
-HEIGHT=720
+WIDTH=320
+HEIGHT=240
 
 #set your Audio Source
 ASRC=jackaudiosrc

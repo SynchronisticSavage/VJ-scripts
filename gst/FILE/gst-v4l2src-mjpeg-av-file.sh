@@ -16,14 +16,14 @@ TIME=$(date "+%Y.%m.%d-%H.%M.%S")
 
 
 #set Output Width/Height
-WIDTH=1280
-HEIGHT=720
-
+WIDTH=320
+HEIGHT=240
+FPS=125
 #set your Audio Source
 ASRC=jackaudiosrc
 #ASRC=pulsesrc
 
 #TODO Tee to V4l2loopback
 
-gst-launch-0.10 -e -v v4l2src device=$VDEVIN ! videoscale ! ffmpegcolorspace ! video/x-raw-yuv,width=$WIDTH,height=$HEIGHT,framerate=30/1 ! $ENC ! queue ! avimux name=mux ! filesink location=$VPATH/$TIME.$OFILE $ASRC  ! audioconvert ! 'audio/x-raw-int,rate=48000,cahannels=2' ! mux.
+gst-launch-0.10 -e -v v4l2src device=$VDEVIN ! videoscale ! ffmpegcolorspace ! video/x-raw-yuv,width=$WIDTH,height=$HEIGHT,framerate=$FPS/1 ! $ENC ! queue ! avimux name=mux ! filesink location=$VPATH/$TIME.$OFILE $ASRC  ! audioconvert ! 'audio/x-raw-int,rate=48000,cahannels=2' ! mux.
 
