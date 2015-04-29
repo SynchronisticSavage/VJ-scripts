@@ -20,9 +20,9 @@ TIME=$(date "+%Y.%m.%d-%H.%M.%S")
 
 
 #set Output Width/Height
-WIDTH=320
-HEIGHT=240
-FPS=125
+WIDTH=640
+HEIGHT=480
+FPS=30
 #set your Audio Source
 ASRC=jackaudiosrc
 #ASRC=pulsesrc

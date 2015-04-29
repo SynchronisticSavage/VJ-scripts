@@ -1,12 +1,16 @@
 #!/bin/bash
 #Script to convert video files to mjpeg scaled framerate adjusted good for use in veejay and lpHiR
-
+#input path and and and the output path can be specified at the command line
+#usage example:
+#./gst-dir-mjpeg-dir-files.sh /path/to/input/files/*.avi /path/to/output/dir
+#(hint you can use the '*' for the input to pull multiple files)
+#or you can set the input and output paths right in this file!
 #set input path
 if [[ -n "$1" ]]; then
 FILES=$1
 echo "obtaining files from $FILES"
 else
-FILES=~/Videos/capture/tmp/*.mkv
+FILES=~/HiR/lpHiR/1280x720/*.mkv
 echo "input file path set to $FILES"
 fi
 
@@ -16,7 +20,7 @@ then
 VPATH=$2
 echo "placing output files neatly in $VPATH"
 else
-VPATH=~/HiR/lpHiR/320x240/converted
+VPATH=~/Videos/veejay/1280x720
 echo "smoothly dropping output files in $VPATH"
 fi
 
@@ -38,17 +42,17 @@ OFILE=\"$VPATH/$NOEXT-veejay.avi\"
 ENC=jpegenc
 
 #set Output Width/Height and framerate and audiorate
-WIDTH=320
-HEIGHT=240
-FPS=125
+WIDTH=1280
+HEIGHT=720
+FPS=30
 FRAMERATE=$FPS/1
 RATE=48000
 echo "using $ENC to encode $NOEXT with a resolution of $WIDTH x $HEIGHT at $FPS frames per second"
 echo "audio sample rate set to $RATE"
 
 #set borders to maintain aspect ratio?
-BORDERS=true
-echo "setting maintain aspect ratio to: $BORDERS"
+BORDERS=false
+echo "setting maintain aspect ratio to: $BORDERS" 
 
   echo "Recombobulating $f to $OFILE" 
 # run the script

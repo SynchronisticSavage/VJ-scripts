@@ -17,8 +17,8 @@ MUX=matroskamux
 #set ximage capture area
 STARTX=0
 STARTY=0
-ENDX=1279
-ENDY=719
+ENDX=639
+ENDY=439
 
 #show cursor?
 POINTER=false
@@ -32,8 +32,8 @@ TIME=$(date "+%Y.%m.%d-%H.%M.%S")
 
 
 #set Output Width/Height
-WIDTH=1280
-HEIGHT=720
+WIDTH=640
+HEIGHT=480
 FPS=30
 #set your Audio Source
 #ASRC=jackaudiosrc

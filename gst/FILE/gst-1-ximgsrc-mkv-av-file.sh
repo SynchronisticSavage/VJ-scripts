@@ -18,10 +18,10 @@ STARTX=0
 STARTY=0
 ENDX=1279
 ENDY=719
-
+POINTER=false
 #set output path and file
 VPATH=~/Videos/capture
-OFILE=v4l2src-mjpeg-jack.mkv
+OFILE=ximgsrc-mjpeg-jack.mkv
 TIME=$(date "+%Y.%m.%d-%H.%M.%S")
 
 
@@ -34,5 +34,5 @@ ASRC=jackaudiosrc
 #ASRC=pulsesrc
 
 
-gst-launch-1.0 -e -v $MUX name=mux ! filesink location=$VPATH/$TIME.$OFILE ximagesrc startx=$STARTX starty=$STARTY endx=$ENDX endy=$ENDY ! jpegenc ! image/jpeg,width=1280,height=720,framerate=30/1 ! mux.video_0 jackaudiosrc ! audioconvert ! queue ! audio/x-raw,format=S16LE ! mux.audio_0
+gst-launch-1.0 -e -v $MUX name=mux ! filesink location=$VPATH/$TIME.$OFILE ximagesrc startx=$STARTX starty=$STARTY endx=$ENDX endy=$ENDY show-pointer=$POINTER ! jpegenc ! image/jpeg,width=$WIDTH,height=$HEIGHT,framerate=30/1 ! mux.video_0 jackaudiosrc ! audioconvert ! queue ! audio/x-raw,format=S16LE ! mux.audio_0
 
