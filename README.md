@@ -6,7 +6,8 @@ Created by Open to Source
 
 Depends
 well it depends on the script :P
-OtS suggests starting out with Open Artist...the best Distro we have found for MultiMedia Production http://openartisthq.org/
+Many of the scripts will work in ubuntu 12.04 and 14.04 with some 12.04 scripts using gst-0.10 and 14.04 scripts using gst-1.0 but not always :P
+have not tested but should work with 16.04 aswell...
 
 a full install of gstreamer good bad ugly tools gl etc is essential (from bin is fine...except the gl you may have to compile)
 
