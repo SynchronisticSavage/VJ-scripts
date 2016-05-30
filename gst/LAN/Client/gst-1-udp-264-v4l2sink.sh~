@@ -5,7 +5,7 @@
 #This script receives and display video on v4l2loopback device through UDP
 
 #set IP and Port
-IP=10.42.0.255
+IP=192.168.0.255
 VPORT=5001
 #set Latency
 LATENCY=2

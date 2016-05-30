@@ -5,7 +5,7 @@
 
 #set IP and Port
 IP=10.42.0.255
-VPORT=5001
+VPORT=5000
 
 #set latency
 LATENCY=200
