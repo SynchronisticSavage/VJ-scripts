@@ -1,0 +1,22 @@
+#! /bin/bash
+#Written by Garrett Weaver
+#modded by Open to Source
+#Licensed under GNU GPL version 3
+#This script transmits video encoded with x264 over UDP
+
+#set v4l2 Input device
+IDEV=/dev/video0
+
+#set resolution and framerate
+WIDTH=640
+HEIGHT=480
+FPS=24/1
+#,framerate=$FPS
+#set the Multicast IP network and port number
+IP=10.42.0.255
+VPORT=5001
+#,format=RGB32
+
+#video transmit
+gst-launch-1.0 -v v4l2src device=$IDEV ! queue ! video/x-raw,width=$WIDTH,height=$HEIGHT,framerate=$FPS ! videoconvert ! x264enc bitrate=5555 speed-preset=1 tune=zerolatency ! queue ! rtph264pay ! udpsink host=$IP port=$VPORT auto-multicast=true 
+
