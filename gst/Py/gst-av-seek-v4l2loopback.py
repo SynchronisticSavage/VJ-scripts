@@ -1,6 +1,6 @@
 import gst, gtk, gobject
 
-class PlaybackInterface:
+class PlaybackInterface(Callable):
 
 	PLAY_IMAGE = gtk.image_new_from_stock(gtk.STOCK_MEDIA_PLAY, gtk.ICON_SIZE_BUTTON)
 	PAUSE_IMAGE = gtk.image_new_from_stock(gtk.STOCK_MEDIA_PAUSE, gtk.ICON_SIZE_BUTTON)
@@ -9,7 +9,7 @@ class PlaybackInterface:
 		self.playbin = gst.element_factory_make('playbin2')
 		# change this URI to where you downloaded the file.
 		self.playbin.set_property('uri', 
-		'file:///home/hero/Videos/stock/Hurricane_Connie_1955.ogg')
+		'file:///home/hero/Videos/big_buck_bunny_480p_h264-020907-16052016.mkv')
 		self.bus = self.playbin.get_bus()
 		self.bus.connect("message::eos", self.on_finish)
 
@@ -95,5 +95,5 @@ class PlaybackInterface:
 
 
 if __name__ == "__main__":
-	PlaybackInterface()
+	bloof = PlaybackInterface()
 	gtk.main()

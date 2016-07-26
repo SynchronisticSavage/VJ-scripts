@@ -14,8 +14,9 @@ MUX=matroskamux
 VDEVIN=/dev/video5
 
 #set output path and file
-VPATH=~/Videos/capture
-OFILE=v4l2src-mjpeg-jack-gst1.mkv
+VPATH=~/Videos/capture/test
+mkdir -p $VPATH
+OFILE=AV-Rec-tst-640-pulse.mkv
 TIME=$(date "+%Y.%m.%d-%H.%M.%S")
 
 
@@ -24,10 +25,10 @@ WIDTH=640
 HEIGHT=480
 FPS=30
 #set your Audio Source
-ASRC=jackaudiosrc
-#ASRC=pulsesrc
+#ASRC=jackaudiosrc
+ASRC=pulsesrc
 
-gst-launch-1.0 -e -v $MUX name=mux ! filesink location=$VPATH/$TIME.$OFILE v4l2src device=$VDEVIN ! jpegenc ! image/jpeg,width=$WIDTH,height=$HEIGHT,framerate=$FPS/1 ! mux.video_0 jackaudiosrc ! audioconvert ! queue ! audio/x-raw,format=S16LE ! mux.audio_0
+gst-launch-1.0 -e -v $MUX name=mux ! filesink location=$VPATH/$TIME.$OFILE v4l2src device=$VDEVIN ! videoconvert ! video/x-raw,format=I420 ! jpegenc ! image/jpeg,width=$WIDTH,height=$HEIGHT,framerate=$FPS/1 ! mux.video_0 $ASRC ! audioconvert ! queue ! audio/x-raw,format=S16LE ! mux.audio_0
 
 #TODO Tee to V4l2loopback
 

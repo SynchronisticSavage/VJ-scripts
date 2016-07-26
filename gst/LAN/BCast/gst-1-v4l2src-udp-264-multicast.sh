@@ -5,16 +5,16 @@
 #This script transmits video encoded with x264 over UDP
 
 #set v4l2 Input device
-IDEV=/dev/video0
+IDEV=/dev/video5
 
 #set resolution and framerate
 WIDTH=640
 HEIGHT=480
-FPS=24/1
+FPS=30/1
 #,framerate=$FPS
 #set the Multicast IP network and port number
 IP=10.42.0.255
-VPORT=5001
+VPORT=5555
 #,format=RGB32
 
 #video transmit

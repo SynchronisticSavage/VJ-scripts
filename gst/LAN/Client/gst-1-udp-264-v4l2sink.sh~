@@ -5,8 +5,8 @@
 #This script receives and display video on v4l2loopback device through UDP
 
 #set IP and Port
-IP=192.168.0.255
-VPORT=5001
+IP=10.42.0.255
+VPORT=5003
 #set Latency
 LATENCY=2
 #set v4l2loopback video dev multicast-group=$IP auto-multicast=true

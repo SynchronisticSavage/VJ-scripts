@@ -44,7 +44,7 @@ class Pipeline(object):
         self.pipeline.add(self.caps_filter)
   
         self.sink = gst.element_factory_make("v4l2sink", "sink")
-	self.sink.set_property("device", "/dev/video6")
+	self.sink.set_property("device", "/dev/video3")
         self.pipeline.add(self.sink)
 
 	self.webcam.link(self.queue)

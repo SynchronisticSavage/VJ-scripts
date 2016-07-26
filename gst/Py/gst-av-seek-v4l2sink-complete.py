@@ -1,5 +1,7 @@
 import os
 import gst, gtk, gobject
+import pygtk
+pygtk.require("2.0")
 
 class PlaybackInterface:
 
@@ -40,8 +42,8 @@ class PlaybackInterface:
 		self.playbin = gst.element_factory_make('playbin2')
 		
 		current_dir = os.path.abspath('.')
-		#self.playbin.set_property('uri', 'file://' + os.path.join(current_dir, 'Hurricane_Connie_1955.ogg'))
-		self.playbin.set_property('uri', 'https://r3---sn-uxa0n-tm3e.googlevideo.com/videoplayback?sparams=dur%2Cid%2Cinitcwndbps%2Cip%2Cipbits%2Citag%2Cmime%2Cmm%2Cms%2Cmv%2Cpl%2Cratebypass%2Crequiressl%2Csource%2Cupn%2Cexpire&fexp=907263%2C927622%2C931371%2C936118%2C937235%2C9406356%2C9406624%2C9406850%2C943605%2C943917%2C947225%2C948124%2C952302%2C952605%2C952612%2C952901%2C955301%2C957201%2C959701&ip=207.34.141.22&id=o-AH-EbX_yw-gWLaeWmlml75akZapyuT-eBsfEfrp9qBZ5&upn=38SdlT-ySKU&mm=31&ms=au&signature=08FE190A6AAD1038CDBD68750616B2A9BE93792A.5901E389B56805B89C4CAF16620E38120E8054C7&mv=m&mt=1423800910&itag=18&sver=3&ipbits=0&key=yt5&mime=video%2Fmp4&expire=1423822581&requiressl=yes&ratebypass=yes&source=youtube&pl=17&initcwndbps=873750&dur=64.760')		
+		self.playbin.set_property('uri', "file:///home/open/Videos/big_buck_small.ogv")
+		#self.playbin.set_property('uri', 'https://r3---sn-uxa0n-tm3e.googlevideo.com/videoplayback?sparams=dur%2Cid%2Cinitcwndbps%2Cip%2Cipbits%2Citag%2Cmime%2Cmm%2Cms%2Cmv%2Cpl%2Cratebypass%2Crequiressl%2Csource%2Cupn%2Cexpire&fexp=907263%2C927622%2C931371%2C936118%2C937235%2C9406356%2C9406624%2C9406850%2C943605%2C943917%2C947225%2C948124%2C952302%2C952605%2C952612%2C952901%2C955301%2C957201%2C959701&ip=207.34.141.22&id=o-AH-EbX_yw-gWLaeWmlml75akZapyuT-eBsfEfrp9qBZ5&upn=38SdlT-ySKU&mm=31&ms=au&signature=08FE190A6AAD1038CDBD68750616B2A9BE93792A.5901E389B56805B89C4CAF16620E38120E8054C7&mv=m&mt=1423800910&itag=18&sver=3&ipbits=0&key=yt5&mime=video%2Fmp4&expire=1423822581&requiressl=yes&ratebypass=yes&source=youtube&pl=17&initcwndbps=873750&dur=64.760')		
 		#set sink
 		#self.sink = gst.element_factory_make('xvimagesink')
 		#self.sink.set_property('force-aspect-ratio', True)

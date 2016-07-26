@@ -13,7 +13,7 @@ class Pipeline(object):
         self.pipeline = gst.Pipeline("pipe")
 
         self.webcam = gst.element_factory_make("v4l2src", "webcam")
-        self.webcam.set_property("device", "/dev/video0")
+        self.webcam.set_property("device", "/dev/video5")
         self.pipeline.add(self.webcam)
 
 

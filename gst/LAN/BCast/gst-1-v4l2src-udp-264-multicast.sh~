@@ -5,7 +5,7 @@
 #This script transmits video encoded with x264 over UDP
 
 #set v4l2 Input device
-IDEV=/dev/video0
+IDEV=/dev/video5
 
 #set resolution and framerate
 WIDTH=640

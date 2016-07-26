@@ -7,7 +7,7 @@
 # Adapted from Laszlo Pandy's code
 #
 import os
-import gst, gtk, gobject
+import gst, gtk, gobject, pygtk
 
 class PlaybackInterface:
 
